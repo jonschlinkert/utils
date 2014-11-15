@@ -1,7 +1,7 @@
 {
   "name": "utils",
   "description": "Generic utility functions for JavaScript/node.js",
-  "version": "0.1.0",
+  "version": "0.0.2",
   "homepage": "https://github.com/jonschlinkert/utils",
   "author": {
     "name": "Jon Schlinkert",
@@ -29,5 +29,20 @@
   },
   "devDependencies": {
     "mocha": "*"
+  },
+  "dependencies": {
+    "arr-flatten": "^0.2.1",
+    "array-slice": "^0.2.2",
+    "dirs": "^0.1.2",
+    "for-in": "^0.1.3",
+    "for-own": "^0.1.2",
+    "has-value": "^0.1.0",
+    "is-directory": "^0.2.2",
+    "kind-of": "^0.1.2",
+    "make-iterator": "^0.1.1",
+    "object.filter": "^0.2.0",
+    "object.omit": "^0.2.1",
+    "object.pick": "^0.1.1",
+    "object.reduce": "^0.1.3"
   }
 }
