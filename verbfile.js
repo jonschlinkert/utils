@@ -18,7 +18,6 @@ verb.helper('coverage', function (fp) {
 // ignore patterns for excluding TOC headings (for verb's built-in `toc` helper)
 verb.option('toc.ignore', ['Install', 'Contributing', 'Author', 'License']);
 
-
 // generate the README
 verb.task('readme', ['test'], function () {
   return verb.src('.verb.md')
@@ -57,7 +56,7 @@ verb.task('names', function () {
 verb.task('modularize', function () {
   return verb.src(['lib/string/index.js'])
     .pipe(plugin.modularize())
-    .pipe(verb.dest('lib/string'));
+    .pipe(verb.dest('lib/temp'));
 });
 
 verb.task('default', ['test', 'readme']);

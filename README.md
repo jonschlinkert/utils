@@ -56,7 +56,7 @@ These links take you to the code for each function. There are currently 0 utils 
 
 
 ## API
-### [.exports](./lib/array/after.js#L18)
+### [.after](./lib/array/after.js#L19)
 
 Returns all of the items in an array after the specified index.
 
@@ -69,7 +69,7 @@ after(['a', 'b', 'c'], 1)
 //=> ['c']
 ```
 
-### [.exports](./lib/array/arrayify.js#L19)
+### [.arrayify](./lib/array/arrayify.js#L20)
 
 Cast the give `value` to an array.
 
@@ -84,7 +84,7 @@ arrayify(['abc'])
 //=> ['abc']
 ```
 
-### [.exports](./lib/array/before.js#L19)
+### [.before](./lib/array/before.js#L20)
 
 Returns all of the items in an array up to the specified number Opposite of `<%= after() %`.
 
@@ -97,7 +97,7 @@ before(['a', 'b', 'c'], 2)
 //=> ['a', 'b']
 ```
 
-### [.exports](./lib/array/compact.js#L16)
+### [.compact](./lib/array/compact.js#L17)
 
 Remove all falsey values from an array.
 
@@ -125,7 +125,7 @@ diff(a, b);
 //=> ['a', 'd']
 ```
 
-### [.exports](./lib/array/first.js#L19)
+### [.first](./lib/array/first.js#L20)
 
 Returns the first item, or first `n` items of an array.
 
@@ -158,7 +158,7 @@ flatten(['a', ['b', ['c']], 'd', ['e']]);
 
 
 
-### [.exports](./lib/array/isArray.js#L18)
+### [.isArray](./lib/array/isArray.js#L19)
 
 Returns true if the given `value` is an array.
 
@@ -172,7 +172,7 @@ isArray([1]);
 //=> 'true'
 ```
 
-### [.exports](./lib/array/last.js#L19)
+### [.last](./lib/array/last.js#L20)
 
 Returns the last item, or last `n` items of an array.
 
@@ -185,7 +185,7 @@ last(['a', 'b', 'c', 'd', 'e'], 2)
 //=> ['d', 'e']
 ```
 
-### [.exports](./lib/array/map.js#L26)
+### [.map](./lib/array/map.js#L27)
 
 Returns a new array with the results of calling the given function on every element in the array. This is a faster, node.js focused alternative to JavaScript's native array map.
 
@@ -254,7 +254,7 @@ Return true if `collection` contains `value`
 
 
 
-### [.exports](./lib/fs/tryReaddir.js#L15)
+### [.tryReaddir](./lib/fs/tryReaddir.js#L16)
 
 * `dir` **{String}**: Starting directory    
 * `returns` **{Array}**: Array of files.  
@@ -263,7 +263,7 @@ Try to read the given `directory`. Wraps `fs.readdirSync()` with
 a try/catch, so it fails silently instead of throwing when the
 directory doesn't exist.
 
-### [.exports](./lib/fs/tryRequire.js#L14)
+### [.tryRequire](./lib/fs/tryRequire.js#L15)
 
 * `fp` **{String}**: File path of the file to require    
 * `returns` **{*}**: Returns the module function/object, or `null` if not found.  
@@ -298,7 +298,7 @@ isObject({a: 'b'})
 
 
 
-### [.exports](./lib/math/sum.js#L19)
+### [.sum](./lib/math/sum.js#L20)
 
 Returns the sum of all numbers in the given array.
 
@@ -310,7 +310,7 @@ sum([1, 2, 3, 4, 5])
 //=> '15'
 ```
 
-### [.exports](./lib/object/extend.js#L15)
+### [.extend](./lib/object/extend.js#L16)
 
 * `o` **{Object}**: The target object. Pass an empty object to shallow clone.    
 * `objects` **{Object}**    
@@ -324,7 +324,7 @@ Extend `o` with properties of other `objects`.
 
 
 
-### [.exports](./lib/object/functions.js#L19)
+### [.functions](./lib/object/functions.js#L20)
 
 Returns a copy of the given `obj` filtered to have only enumerable properties that have function values.
 
@@ -336,7 +336,7 @@ functions({a: 'b', c: function() {}});
 //=> {c: function() {}}
 ```
 
-### [.exports](./lib/object/hasOwn.js#L17)
+### [.hasOwn](./lib/object/hasOwn.js#L18)
 
 Return true if `key` is an own, enumerable property of the given `obj`.
 
@@ -354,7 +354,7 @@ hasOwn(obj, key);
 
 
 
-### [.exports](./lib/object/keys.js#L14)
+### [.keys](./lib/object/keys.js#L15)
 
 * `obj` **{Object}**    
 * `returns` **{Array}**: Array of keys.  
@@ -362,7 +362,7 @@ hasOwn(obj, key);
 Return an array of keys for the given `obj`. Uses `Object.keys`
 when available, otherwise falls back on `forOwn`.
 
-### [merge](./lib/object/merge.js#L22)
+### [merge](./lib/object/merge.js#L23)
 
 * `o` **{Object}**: The target object. Pass an empty object to shallow clone.    
 * `objects` **{Object}**    
@@ -371,7 +371,7 @@ when available, otherwise falls back on `forOwn`.
 Recursively combine the properties of `o` with the
 properties of other `objects`.
 
-### [.exports](./lib/object/methods.js#L14)
+### [.methods](./lib/object/methods.js#L15)
 
 * `obj` **{Object}**    
 * `returns`: {Array}  
@@ -387,76 +387,7 @@ values
 
 
 
-### [.isString](./lib/string/index.js#L24)
-
-Returns true if the value is a string.
-
-* `val` **{String}**    
-* `returns` **{Boolean}**: True if the value is a string.  
-
-```js
-<%= isString('abc') %>
-//=> 'true'
-
-<%= isString(null) %>
-//=> 'false'
-```
-
-### [.lowercase](./lib/string/index.js#L41)
-
-Lowercase the characters in the given `string`.
-
-* `string` **{String}**: The string to lowercase.    
-* `returns`: {String}  
-
-```js
-<%= lowercase("ABC") %>
-//=> 'abc'
-```
-
-### [.uppercase](./lib/string/index.js#L59)
-
-Uppercase the characters in a string.
-
-* `string` **{String}**: The string to uppercase.    
-* `returns`: {String}  
-
-```js
-<%= uppercase("abc") %>
-//=> 'ABC'
-```
-
-### [.trim](./lib/string/index.js#L78)
-
-Trim extraneous whitespace from the beginning and end of a string.
-
-* `string` **{String}**: The string to trim.    
-* `returns`: {String}  
-
-```js
-<%= trim("  ABC   ") %>
-//=> 'ABC'
-```
-
-### [.chop](./lib/string/index.js#L103)
-
-Like trim, but removes both extraneous whitespace and non-word characters from the beginning and end of a string.
-
-* `string` **{String}**: The string to chop.    
-* `returns`: {String}  
-
-```js
-<%= chop("_ABC_") %>
-//=> 'ABC'
-
-<%= chop("-ABC-") %>
-//=> 'ABC'
-
-<%= chop(" ABC ") %>
-//=> 'ABC'
-```
-
-### [.camelcase](./lib/string/index.js#L122)
+### [.camelcase](./lib/string/camelcase.js#L20)
 
 camelCase the characters in `string`.
 
@@ -464,108 +395,40 @@ camelCase the characters in `string`.
 * `returns`: {String}  
 
 ```js
-<%= camelcase("foo bar baz") %>
+camelcase("foo bar baz");
 //=> 'fooBarBaz'
 ```
 
-### [.pascalcase](./lib/string/index.js#L144)
+### [.centerAlign](./lib/string/centerAlign.js#L21)
 
-PascalCase the characters in `string`.
+Center align the characters in a string using non-breaking spaces.
 
-* `string` **{String}**    
+* `str` **{String}**: The string to reverse.    
+* `returns` **{String}**: Centered string.  
+
+```js
+centerAlign("abc");
+```
+
+### [.chop](./lib/string/chop.js#L26)
+
+Like trim, but removes both extraneous whitespace and non-word characters from the beginning and end of a string.
+
+* `string` **{String}**: The string to chop.    
 * `returns`: {String}  
 
 ```js
-<%= pascalcase("foo bar baz") %>
-//=> 'FooBarBaz'
+chop("_ABC_");
+//=> 'ABC'
+
+chop("-ABC-");
+//=> 'ABC'
+
+chop(" ABC ");
+//=> 'ABC'
 ```
 
-### [.snakecase](./lib/string/index.js#L164)
-
-snake_case the characters in `string`.
-
-* `string` **{String}**    
-* `returns`: {String}  
-
-```js
-<%= snakecase("a-b-c d_e") %>
-//=> 'a_b_c_d_e'
-```
-
-### [.dotcase](./lib/string/index.js#L186)
-
-dot.case the characters in `string`.
-
-* `string` **{String}**    
-* `returns`: {String}  
-
-```js
-<%= dotcase("a-b-c d_e") %>
-//=> 'a.b.c.d.e'
-```
-
-### [.dashcase](./lib/string/index.js#L210)
-
-dash-case the characters in `string`. This is similar to [slugify], but [slugify] makes the string compatible to be used as a URL slug.
-
-* `string` **{String}**    
-* `returns`: {String}  
-
-```js
-<%= dashcase("a b.c d_e") %>
-//=> 'a-b-c-d-e'
-```
-
-### [.pathcase](./lib/string/index.js#L232)
-
-path/case the characters in `string`.
-
-* `string` **{String}**    
-* `returns`: {String}  
-
-```js
-<%= pathcase("a-b-c d_e") %>
-//=> 'a/b/c/d/e'
-```
-
-### [.sentencecase](./lib/string/index.js#L254)
-
-Sentence-case the characters in `string`.
-
-* `string` **{String}**    
-* `returns`: {String}  
-
-```js
-<%= sentencecase("foo bar baz.") %>
-//=> 'Foo bar baz.'
-```
-
-### [.hyphenate](./lib/string/index.js#L273)
-
-Replace spaces in a string with hyphens. This
-
-* `string` **{String}**    
-* `returns`: {String}  
-
-```js
-<%= hyphenate("a b c") %>
-//=> 'a-b-c'
-```
-
-### [.wordwrap](./lib/string/index.js#L312)
-
-Wrap words to a specified width using [word-wrap].
-
-* `string` **{String}**: The string with words to wrap.    
-* `object` **{Options}**: Options to pass to [word-wrap]    
-* `returns` **{String}**: Formatted string.  
-
-```js
-<%= wordwrap("a b c d e f", {width: 5, newline: '<br>  '}) %>
-//=> '  a b c <br>  d e f'
-```
-
-### [.count](./lib/string/index.js#L332)
+### [.count](./lib/string/count.js#L21)
 
 Count the number of occurrances of a substring within a string.
 
@@ -574,72 +437,35 @@ Count the number of occurrances of a substring within a string.
 * `returns` **{Number}**: The occurances of `substring` in `string`  
 
 ```js
-<%= count("abcabcabc", "a") %>
+count("abcabcabc", "a");
 //=> '3'
 ```
 
-### [.reverse](./lib/string/index.js#L350)
+### [.dashcase](./lib/string/dashcase.js#L22)
 
-Reverse the characters in a string.
+dash-case the characters in `string`. This is similar to [slugify], but [slugify] makes the string compatible to be used as a URL slug.
 
-* `str` **{String}**: The string to reverse.    
+* `string` **{String}**    
 * `returns`: {String}  
 
 ```js
-<%= reverse("abc") %>
-//=> 'cba'
+dashcase("a b.c d_e");
+//=> 'a-b-c-d-e'
 ```
 
-### [.rightAlign](./lib/string/index.js#L369)
+### [.dotcase](./lib/string/dotcase.js#L20)
 
-Right align the characters in a string using non-breaking spaces.
+dot.case the characters in `string`.
 
-* `str` **{String}**: The string to reverse.    
-* `returns` **{String}**: Right-aligned string.  
-
-```js
-<%= rightAlign(str) %>
-```
-
-### [.centerAlign](./lib/string/index.js#L388)
-
-Center align the characters in a string using non-breaking spaces.
-
-* `str` **{String}**: The string to reverse.    
-* `returns` **{String}**: Centered string.  
-
-```js
-<%= centerAlign("abc") %>
-```
-
-### [.replace](./lib/string/index.js#L408)
-
-Replace occurrences of `a` with `b`.
-
-* `str` **{String}**    
-* `a` **{String|RegExp}**: Can be a string or regexp.    
-* `b` **{String}**    
+* `string` **{String}**    
 * `returns`: {String}  
 
 ```js
-<%= replace("abcabc", /a/, "z") %>
-//=> 'zbczbc'
+dotcase("a-b-c d_e");
+//=> 'a.b.c.d.e'
 ```
 
-### [.truncate](./lib/string/index.js#L430)
-
-Truncate a string by removing all HTML tags and limiting the result to the specified `length`.
-
-* `str` **{String}**    
-* `length` **{Number}**: The desired length of the returned string.    
-* `returns` **{String}**: The truncated string.  
-
-```js
-<%= truncate("<span>foo bar baz</span>", 7) %>
-//=> 'foo bar'
-```
-
-### [.ellipsis](./lib/string/index.js#L451)
+### [.ellipsis](./lib/string/ellipsis.js#L23)
 
 Truncate a string to the specified `length`, and append it with an elipsis, `…`.
 
@@ -649,11 +475,153 @@ Truncate a string to the specified `length`, and append it with an elipsis, `…
 * `returns` **{String}**: The truncated string.  
 
 ```js
-<%= ellipsis("<span>foo bar baz</span>", 7) %>
+ellipsis("<span>foo bar baz</span>", 7);
 //=> 'foo bar…'
 ```
 
+### [.hyphenate](./lib/string/hyphenate.js#L20)
 
+Replace spaces in a string with hyphens. This
+
+* `string` **{String}**    
+* `returns`: {String}  
+
+```js
+hyphenate("a b c");
+//=> 'a-b-c'
+```
+
+
+
+### [.isString](./lib/string/isString.js#L20)
+
+Returns true if the value is a string.
+
+* `val` **{String}**    
+* `returns` **{Boolean}**: True if the value is a string.  
+
+```js
+isString('abc');
+//=> 'true'
+
+isString(null);
+//=> 'false'
+```
+
+### [.pascalcase](./lib/string/pascalcase.js#L20)
+
+PascalCase the characters in `string`.
+
+* `string` **{String}**    
+* `returns`: {String}  
+
+```js
+pascalcase("foo bar baz");
+//=> 'FooBarBaz'
+```
+
+### [.pathcase](./lib/string/pathcase.js#L20)
+
+path/case the characters in `string`.
+
+* `string` **{String}**    
+* `returns`: {String}  
+
+```js
+pathcase("a-b-c d_e");
+//=> 'a/b/c/d/e'
+```
+
+### [.replace](./lib/string/replace.js#L21)
+
+Replace occurrences of `a` with `b`.
+
+* `str` **{String}**    
+* `a` **{String|RegExp}**: Can be a string or regexp.    
+* `b` **{String}**    
+* `returns`: {String}  
+
+```js
+replace("abcabc", /a/, "z");
+//=> 'zbczbc'
+```
+
+### [.reverse](./lib/string/reverse.js#L19)
+
+Reverse the characters in a string.
+
+* `str` **{String}**: The string to reverse.    
+* `returns`: {String}  
+
+```js
+reverse("abc");
+//=> 'cba'
+```
+
+### [.rightAlign](./lib/string/rightAlign.js#L21)
+
+Right align the characters in a string using non-breaking spaces.
+
+* `str` **{String}**: The string to reverse.    
+* `returns` **{String}**: Right-aligned string.  
+
+```js
+rightAlign(str);
+```
+
+### [.sentencecase](./lib/string/sentencecase.js#L19)
+
+Sentence-case the characters in `string`.
+
+* `string` **{String}**    
+* `returns`: {String}  
+
+```js
+sentencecase("foo bar baz.");
+//=> 'Foo bar baz.'
+```
+
+
+
+### [.snakecase](./lib/string/snakecase.js#L20)
+
+snake_case the characters in `string`.
+
+* `string` **{String}**    
+* `returns`: {String}  
+
+```js
+snakecase("a-b-c d_e");
+//=> 'a_b_c_d_e'
+```
+
+
+
+### [.truncate](./lib/string/truncate.js#L21)
+
+Truncate a string by removing all HTML tags and limiting the result to the specified `length`.
+
+* `str` **{String}**    
+* `length` **{Number}**: The desired length of the returned string.    
+* `returns` **{String}**: The truncated string.  
+
+```js
+truncate("<span>foo bar baz</span>", 7);
+//=> 'foo bar'
+```
+
+### [.wordwrap](./lib/string/wordwrap.js#L21)
+
+Wrap words to a specified width using [word-wrap].
+
+* `string` **{String}**: The string with words to wrap.    
+* `object` **{Options}**: Options to pass to [word-wrap]    
+* `returns` **{String}**: Formatted string.  
+
+```js
+wordwrap("a b c d e f", {width: 5, newline: '<br>  '});
+//=> '  a b c <br>  d e f'
+```
 
 ## Code coverage
 -----------------------|-----------|-----------|-----------|-----------|
@@ -704,11 +672,30 @@ File                   |   % Stmts |% Branches |   % Funcs |   % Lines |
       pick.js          |       100 |       100 |       100 |       100 |
       reduce.js        |       100 |       100 |       100 |       100 |
       some.js          |        30 |         0 |         0 |        30 |
-   string/             |     99.19 |     97.06 |     96.43 |     98.92 |
+   string/             |     99.27 |     96.77 |        96 |     99.09 |
+      camelcase.js     |       100 |       100 |       100 |       100 |
+      centerAlign.js   |       100 |       100 |       100 |       100 |
+      chop.js          |       100 |       100 |       100 |       100 |
+      count.js         |       100 |       100 |       100 |       100 |
+      dashcase.js      |       100 |       100 |       100 |       100 |
+      dotcase.js       |       100 |       100 |       100 |       100 |
+      ellipsis.js      |       100 |       100 |       100 |       100 |
+      hyphenate.js     |       100 |       100 |       100 |       100 |
       index.js         |       100 |       100 |       100 |       100 |
+      isString.js      |       100 |       100 |       100 |       100 |
+      pascalcase.js    |       100 |       100 |       100 |       100 |
+      pathcase.js      |       100 |       100 |       100 |       100 |
+      replace.js       |       100 |       100 |       100 |       100 |
+      reverse.js       |       100 |       100 |       100 |       100 |
+      rightAlign.js    |       100 |       100 |       100 |       100 |
+      sentencecase.js  |       100 |       100 |       100 |       100 |
+      slugify.js       |       100 |       100 |       100 |       100 |
+      snakecase.js     |       100 |       100 |       100 |       100 |
       toString.js      |        50 |         0 |         0 |        50 |
+      truncate.js      |       100 |       100 |       100 |       100 |
+      wordwrap.js      |       100 |       100 |       100 |       100 |
 -----------------------|-----------|-----------|-----------|-----------|
-All files              |     83.43 |     76.54 |     73.77 |     82.09 |
+All files              |      84.1 |     75.64 |     72.41 |     83.07 |
 -----------------------|-----------|-----------|-----------|-----------|
 
 
