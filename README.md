@@ -1,6 +1,6 @@
 # utils [![NPM version](https://badge.fury.io/js/utils.svg)](http://badge.fury.io/js/utils)  [![Build Status](https://travis-ci.org/jonschlinkert/utils.svg)](https://travis-ci.org/jonschlinkert/utils) 
 
-> Generic utility functions for JavaScript/node.js. The goal of this library is to have the fastest possible implementation of each function.
+> Fast, generic JavaScript/node.js utility functions.
 
 ## Install with [npm](npmjs.org)
 

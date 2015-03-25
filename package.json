@@ -1,7 +1,7 @@
 {
   "name": "utils",
-  "description": "Generic utility functions for JavaScript/node.js. The goal of this library is to have the fastest possible implementation of each function.",
-  "version": "0.1.1",
+  "description": "Fast, generic JavaScript/node.js utility functions.",
+  "version": "0.1.5",
   "homepage": "https://github.com/jonschlinkert/utils",
   "author": {
     "name": "Jon Schlinkert",
@@ -70,6 +70,15 @@
     "vinyl": "^0.4.6"
   },
   "keywords": [
+    "array",
+    "collection",
+    "function",
+    "lang",
+    "language",
+    "math",
+    "object",
+    "object",
+    "string",
     "util",
     "utils"
   ],
