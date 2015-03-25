@@ -55,9 +55,9 @@ verb.task('names', function () {
 });
 
 verb.task('modularize', function () {
-  return verb.src(['lib/**/*.js'])
+  return verb.src(['lib/string/index.js'])
     .pipe(plugin.modularize())
-    .pipe(verb.dest('lib/'));
+    .pipe(verb.dest('lib/string'));
 });
 
 verb.task('default', ['test', 'readme']);
