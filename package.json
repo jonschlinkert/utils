@@ -1,7 +1,7 @@
 {
   "name": "utils",
   "description": "Generic utility functions for JavaScript/node.js. The goal of this library is to have the fastest possible implementation of each function.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/jonschlinkert/utils",
   "author": {
     "name": "Jon Schlinkert",
@@ -35,7 +35,6 @@
     "arr-flatten": "^1.0.1",
     "arr-map": "^2.0.0",
     "arr-union": "^2.0.1",
-    "array-slice": "^0.2.2",
     "array-unique": "^0.2.1",
     "center-align": "^0.1.1",
     "export-dirs": "^0.2.4",
@@ -45,7 +44,6 @@
     "has-values": "^0.1.2",
     "is-number": "^1.1.2",
     "is-plain-object": "^1.0.0",
-    "isobject": "^1.0.0",
     "kind-of": "^1.1.0",
     "make-iterator": "^0.1.1",
     "object.filter": "^0.3.0",
@@ -56,6 +54,7 @@
     "word-wrap": "^1.0.2"
   },
   "devDependencies": {
+    "chalk": "^1.0.0",
     "gulp-istanbul": "^0.7.0",
     "gulp-jshint": "^1.9.4",
     "gulp-mocha": "^2.0.0",
@@ -63,9 +62,12 @@
     "jshint-stylish": "^1.0.1",
     "lodash": "^3.5.0",
     "mocha": "*",
+    "relative": "^2.0.0",
     "should": "*",
     "strip-ansi": "^2.0.1",
-    "verb": "^0.5.0"
+    "through2": "^0.6.3",
+    "verb": "^0.5.0",
+    "vinyl": "^0.4.6"
   },
   "keywords": [
     "util",
