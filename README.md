@@ -22,24 +22,28 @@ npm i utils --save
 
 ## Usage
 
-**Utils, grouped by type**
+**Utils grouped by collection**
 
-To get all utils, grouped by collection:
+The top level export gives you an object with utils grouped into collections, like `array`, `object`, `math`, etc:
 
 ```js
 var utils = require('utils');
+//=> {array: {flatten: [function], ...}, collection: {...}}
 ```
 
-**Utils on one object**
+See [example.md](./example.md) for visual representation of the object.
 
-To get all utils on one object:
+
+**Get all utils on one object**
+
+If you want all utils on a single object (e.g. not grouped by collection):
 
 ```js
 // all utils are on the `_` property
 var utils = require('utils')._;
 ```
 
-**To get a specific collection**
+**Only get a specific collection**
 
 If you just want the `string` or `object` utils:
 
