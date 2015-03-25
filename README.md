@@ -727,6 +727,8 @@ wordwrap("a b c d e f", {width: 5, newline: '<br>  '});
 ```
 
 ## Code coverage
+
+```
 -----------------------|-----------|-----------|-----------|-----------|
 File                   |   % Stmts |% Branches |   % Funcs |   % Lines |
 -----------------------|-----------|-----------|-----------|-----------|
@@ -800,6 +802,7 @@ File                   |   % Stmts |% Branches |   % Funcs |   % Lines |
 All files              |     84.15 |     75.95 |     72.88 |     83.12 |
 -----------------------|-----------|-----------|-----------|-----------|
 
+```
 
 ## Running tests
 Install dev dependencies.
@@ -809,11 +812,9 @@ npm i -d && npm test
 ```
 
 ## Contributing
-Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/jonschlinkert/utils/issues)
+> Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/jonschlinkert/utils/issues)
 
 ### Adding utils
-
-> Pull requests are always welcome, whether it's for fixing typos, improving docs, or anything else.
 
 If you want to do a PR to add a util, please read the following first:
  
