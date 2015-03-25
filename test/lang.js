@@ -13,7 +13,45 @@ var _ = require('lodash');
 
 var obj = {a: 'a', b: 'b', c: {d: {e: 'e'}}};
 
-describe('objects', function() {
+describe('lang utils', function() {
+  describe('hasValues', function() {
+    it('should return false if the given value is empty.', function() {
+      utils.hasValues('').should.be.false;
+      utils.hasValues({}).should.be.false;
+      utils.hasValues([]).should.be.false;
+    });
+
+    it('should return true if any value exists.', function() {
+      utils.hasValues('123').should.be.true;
+      utils.hasValues(1).should.be.true;
+      utils.hasValues(obj).should.be.true;
+      utils.hasValues(['a']).should.be.true;
+    });
+  });
+
+  describe('isArguments', function() {
+    it('should return true if the given value is an arguments object.', function() {
+      utils.isArguments(arguments).should.be.true;
+      utils.isArguments('123').should.be.false;
+      utils.isArguments([1, 2, 3]).should.be.false;
+    });
+  });
+
+  describe('isEmpty', function() {
+    it('should return true if the given value is empty.', function() {
+      utils.isEmpty('').should.be.true;
+      utils.isEmpty({}).should.be.true;
+      utils.isEmpty([]).should.be.true;
+    });
+
+    it('should return false if any value exists.', function() {
+      utils.isEmpty('123').should.be.false;
+      utils.isEmpty(1).should.be.false;
+      utils.isEmpty(obj).should.be.false;
+      utils.isEmpty(['a']).should.be.false;
+    });
+  });
+
   describe('isObject', function() {
     it('should return true if the value is an object.', function() {
       utils.isObject(obj).should.be.true;
