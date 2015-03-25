@@ -16,7 +16,7 @@ verb.helper('coverage', function (fp) {
 });
 
 // ignore patterns for excluding TOC headings (for verb's built-in `toc` helper)
-verb.option('toc.ignore', ['Install', 'Contributing', 'Author', 'License']);
+verb.option('toc.ignore', ['Install', 'Author', 'License']);
 
 // generate the README
 verb.task('readme', ['test'], function () {

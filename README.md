@@ -24,6 +24,7 @@ npm i utils --save
 - [API](#api)
 - [Code coverage](#code-coverage)
 - [Running tests](#running-tests)
+- [Contributing](#contributing)
   * [Adding utils](#adding-utils)
 
 <!-- tocstop -->
