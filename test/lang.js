@@ -8,12 +8,11 @@
 'use strict';
 
 require('should');
-var utils = require('..')._;
-var _ = require('lodash');
+var utils = require('../index').lang;
 
 var obj = {a: 'a', b: 'b', c: {d: {e: 'e'}}};
 
-describe('lang utils', function() {
+describe('lang utils:', function() {
   describe('hasValues', function() {
     it('should return false if the given value is empty.', function() {
       utils.hasValues('').should.be.false;

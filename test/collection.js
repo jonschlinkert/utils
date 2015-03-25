@@ -8,10 +8,9 @@
 'use strict';
 
 require('should');
-var utils = require('..')._;
-var _ = require('lodash');
+var utils = require('../index').collection;
 
-describe('collection utils', function() {
+describe('collection utils:', function() {
   describe('any', function() {
     it('should return an empty string when undefined.', function() {
       utils.any().should.be.false;

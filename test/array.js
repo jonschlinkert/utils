@@ -8,11 +8,11 @@
 'use strict';
 
 require('should');
-var utils = require('..')._;
+var utils = require('../index').array;
 
 var arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
-describe('array utils', function() {
+describe('array utils:', function() {
   describe('after', function() {
     it('should throw on bad args.', function() {
       (function () {
@@ -27,8 +27,8 @@ describe('array utils', function() {
 
   describe('arrayify', function() {
     it('should coerce a value to an array.', function() {
-      utils.isArray(utils.arrayify("foo")).should.be.true;
-      utils.isArray(utils.arrayify(["foo"])).should.be.true;
+      utils.isArray(utils.arrayify('foo')).should.be.true;
+      utils.isArray(utils.arrayify(['foo'])).should.be.true;
     });
   });
 
@@ -52,7 +52,7 @@ describe('array utils', function() {
     });
 
     it('should remove falsey values from an array.', function() {
-      utils.compact([null, "a", undefined, 0, false, "b", "c", ""]).should.eql(['a', 'b', 'c']);
+      utils.compact([null, 'a', undefined, 0, false, 'b', 'c', '']).should.eql(['a', 'b', 'c']);
     });
   });
 
@@ -122,7 +122,7 @@ describe('array utils', function() {
   describe('isArray', function() {
     it('should return true if the value is an array.', function() {
       utils.isArray('foo').should.be.false;
-      utils.isArray(["foo"]).should.be.true;
+      utils.isArray(['foo']).should.be.true;
     });
   });
 
@@ -168,17 +168,17 @@ describe('array utils', function() {
     });
 
     it('should sort the items in an array.', function() {
-      utils.sort(["b", "c", "a"]).should.eql(['a', 'b', 'c']);
+      utils.sort(['b', 'c', 'a']).should.eql(['a', 'b', 'c']);
     });
 
     it('should take a compare function.', function() {
-      utils.sort(["b", "c", "a"], function (a, b) {
+      utils.sort(['b', 'c', 'a'], function (a, b) {
         return b.localeCompare(a);
       }).should.eql(['c', 'b', 'a']);
     });
 
     it('should sort based on object key:', function() {
-      utils.sort([{a: "zzz"}, {a: "aaa"}], "a").should.eql([{a:'aaa'},{a:'zzz'}]);
+      utils.sort([{a: 'zzz'}, {a: 'aaa'}], 'a').should.eql([{a:'aaa'},{a:'zzz'}]);
     });
   });
 
@@ -206,7 +206,7 @@ describe('array utils', function() {
     });
 
     it('should unique items from multiple arrays:', function() {
-      utils.unique(["a", "b", "c", "c"]).should.eql(['a','b','c']);
+      utils.unique(['a', 'b', 'c', 'c']).should.eql(['a','b','c']);
     });
   });
 });

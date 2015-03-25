@@ -8,12 +8,11 @@
 'use strict';
 
 require('should');
-var utils = require('..')._;
-var _ = require('lodash');
+var utils = require('../index').object;
 
 var obj = {a: 'a', b: 'b', c: {d: {e: 'e'}}};
 
-describe('objects', function() {
+describe('object utils:', function() {
   describe('hasOwn', function() {
     it('should return true when an object has own property `key`.', function() {
       utils.hasOwn(obj, 'a').should.be.true;

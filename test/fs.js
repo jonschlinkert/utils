@@ -8,10 +8,9 @@
 'use strict';
 
 require('should');
-var utils = require('..')._;
-var _ = require('lodash');
+var utils = require('../index').fs;
 
-describe('fs utils', function() {
+describe('fs utils:', function() {
   var orig = process.cwd();
   before(function () {
     process.chdir(__dirname + '/fixtures');
