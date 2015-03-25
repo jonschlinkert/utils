@@ -14,7 +14,6 @@ var _ = require('lodash');
 var obj = {a: 'a', b: 'b', c: {d: {e: 'e'}}};
 
 describe('objects', function() {
-
   describe('isObject', function() {
     it('should return true if the value is an object.', function() {
       utils.isObject(obj).should.be.true;

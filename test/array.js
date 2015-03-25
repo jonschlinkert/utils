@@ -14,7 +14,7 @@ var arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 describe('isArray', function() {
   it('should return true if the value is an array.', function() {
-    utils.isArray("foo").should.be.false;
+    utils.isArray('foo').should.be.false;
     utils.isArray(["foo"]).should.be.true;
   });
 });
@@ -82,138 +82,106 @@ describe('before', function() {
   });
 });
 
-// describe('after', function() {
-//   it('should return an empty string when undefined.', function() {
-//     after().should.equal('');
-//   });
+describe('after', function() {
+  it('should throw on bad args.', function() {
+    (function () {
+      utils.after()
+    }).should.throw('utils#array.after() expects an array.');
+  });
 
-//   it('should return all of the items in an array after the given index.', function() {
-//     var template = after(arr, 5);
-//     template(context).should.eql(['f', 'g', 'h'].toString());
-//   });
-// });
+  it('should return all of the items in an array after the given index.', function() {
+    utils.after(arr, 5).should.eql(['f', 'g', 'h']);
+  });
+});
 
-// describe('join', function() {
-//   it('should return an empty string when undefined.', function() {
-//     join().should.equal('');
-//   });
+describe('map', function() {
+  it('should return an empty array when undefined.', function() {
+    utils.map().should.eql([]);
+  });
 
-//   it('should return all items in an array joined by the default separator.', function() {
-//     var template = join(arr);
-//     template(context).should.equal('a, b, c, d, e, f, g, h');
-//   });
+  it('should map the items in the array and return new values.', function() {
+    utils.map(['a','b','c'], function(str) {
+      return str + str;
+    }).should.eql(['aa', 'bb', 'cc']);
+  });
+});
 
-//   it('should return all items in an array joined by the given separator.', function() {
-//     var template = join(arr, " | ");
-//     template(context).should.equal('a | b | c | d | e | f | g | h');
-//   });
-// });
+describe('sort', function() {
+  it('should throw on bad args.', function() {
+    (function () {
+      utils.sort()
+    }).should.throw('utils#array.sort() expects an array.');
+  });
 
-// describe('map', function() {
-//   it('should return an empty string when undefined.', function() {
-//     map().should.equal('');
-//   });
+  it('should sort the items in an array.', function() {
+    utils.sort(["b", "c", "a"]).should.eql(['a', 'b', 'c']);
+  });
 
-//   it('should map the items in the array and return new values.', function() {
-//     var o = {};
-//     o.double = function(str) {
-//       return str + str;
-//     };
-//     var template = map(["a","b","c"], double);
-//     template(o).should.equal('aa,bb,cc');
-//   });
-// });
+  it('should take a compare function.', function() {
+    utils.sort(["b", "c", "a"], function (a, b) {
+      return b.localeCompare(a);
+    }).should.eql(['c', 'b', 'a']);
+  });
 
-// describe('sort', function() {
-//   it('should return an empty string when undefined.', function() {
-//     sort().should.equal('');
-//   });
+  it('should sort based on object key:', function() {
+    utils.sort([{a: "zzz"}, {a: "aaa"}], "a").should.eql([{a:'aaa'},{a:'zzz'}]);
+  });
+});
 
-//   it('should sort the items in an array.', function() {
-//     var template = sort(["b", "c", "a"]);
-//     template(context).should.equal('a,b,c');
-//   });
+describe('compact', function() {
+  it('should throw on bad args.', function() {
+    (function () {
+      utils.compact()
+    }).should.throw('utils#array.compact() expects an array.');
+  });
 
-//   it('should take a compare function.', function() {
-//     var o = {};
-//     o.compare = function (a, b) {
-//       return b.localeCompare(a);
-//     };
-//     var template = sort(["b", "c", "a"], compare);
-//     template(o).should.equal('c,b,a');
-//   });
+  it('should remove falsey values from an array.', function() {
+    utils.compact([null, "a", undefined, 0, false, "b", "c", ""]).should.eql(['a', 'b', 'c']);
+  });
+});
 
-//   it('should sort based on object key:', function() {
-//     var template = JSON.stringify(sort([{a: "zzz"}, {a: "aaa"}], "a"));
-//     template().should.equal('[{"a":"aaa"},{"a":"zzz"}]');
-//   });
-// });
+describe('difference', function() {
+  it('should throw on bad args.', function() {
+    (function () {
+      utils.difference()
+    }).should.throw('utils#array.difference() expects an array.');
+  });
 
-// describe('length', function() {
-//   it('should return an empty string when undefined.', function() {
-//     length().should.equal('');
-//   });
+  it('should return the difference from multiple arrays', function() {
+    var o = {};
+    o.a = ['a', 'b', 'c', 'd'];
+    o.b = ['b', 'c'];
+    o.c = ['x', 'y'];
+    utils.difference(o.a, o.b, o.c).should.eql(['a','d']);
+    utils.difference(o.a, o.b).should.eql(['a','d']);
+    utils.difference(o.a).should.eql(['a','b','c','d']);
+  });
+});
 
-//   it('should return zero when the value is not an array.', function() {
-//     var template = length("foo");
-//     template(context).should.equal('0');
-//   });
+describe('unique', function() {
+  it('should throw on bad args.', function() {
+    (function () {
+      utils.unique()
+    }).should.throw('utils#array.unique() expects an array.');
+  });
 
-//   it('should return the length of an array.', function() {
-//     var template = length(["b", "c", "a"]);
-//     template(context).should.equal('3');
-//   });
-// });
+  it('should unique items from multiple arrays:', function() {
+    utils.unique(["a", "b", "c", "c"]).should.eql(['a','b','c']);
+  });
+});
 
-// describe('compact', function() {
-//   it('should return an empty string when undefined.', function() {
-//     compact().should.equal('');
-//   });
+describe('union', function() {
+  it('should throw on bad args.', function() {
+    (function () {
+      utils.union()
+    }).should.throw('utils#array.union() expects an array.');
+  });
 
-//   it('should remove falsey values from an array.', function() {
-//     var template = compact([null, "a", undefined, 0, false, "b", "c", ""]);
-//     template(context).should.equal('a,b,c');
-//   });
-// });
+  it('should union items from multiple arrays:', function() {
+    utils.union(['a', 'c'], ['b', 'b']).should.eql(['a','c','b']);
+  });
 
-// describe('difference', function() {
-//   it('should return an empty string when undefined.', function() {
-//     difference().should.equal('');
-//   });
-
-//   it('should return the difference from multiple arrays', function() {
-//     var o = {};
-//     o.a = ['a', 'b', 'c', 'd'];
-//     o.b = ['b', 'c'];
-//     o.c = ['x', 'y'];
-//     difference(a, b, c)(o).should.equal('a,d');
-//     difference(a, b)(o).should.equal('a,d');
-//     difference(a)(o).should.equal('a,b,c,d');
-//   });
-// });
-
-// describe('unique', function() {
-//   it('should return an empty string when undefined.', function() {
-//     unique().should.equal('');
-//   });
-//   it('should unique items from multiple arrays:', function() {
-//     var template = unique(["a", "b", "c", "c"]);
-//     template(context).should.equal('a,b,c');
-//   });
-// });
-
-// describe('union', function() {
-//   it('should return an empty string when undefined.', function() {
-//     union().should.equal('');
-//   });
-
-//   it('should union items from multiple arrays:', function() {
-//     var template = union(["a", "c"], ["b", "b"]);
-//     template(context).should.equal('a,c,b');
-//   });
-
-//   it('should union items from multiple arrays:', function() {
-//     var template = union(["a"], ["b"]);
-//     template(context).should.equal('a,b');
-//   });
-// });
+  it('should union items from multiple arrays:', function() {
+    utils.union(['a'], ['b']).should.eql(['a','b']);
+  });
+});
