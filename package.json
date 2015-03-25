@@ -1,7 +1,7 @@
 {
   "name": "utils",
   "description": "Fast, generic JavaScript/node.js utility functions.",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "homepage": "https://github.com/jonschlinkert/utils",
   "author": {
     "name": "Jon Schlinkert",
