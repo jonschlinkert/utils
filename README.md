@@ -2,6 +2,13 @@
 
 > Fast, generic JavaScript/node.js utility functions.
 
+**Goals**
+
+- Fastest implementation of each method, without too much compromise. Covering uncommon cases is fine, but don't go overboard.
+- Clean well-documented, commented code.
+- [When it makes sense](#adding-utils), external libraries are used and exposed instead of writing new code. 
+- Focus on node.js usage and projects that are likely to use a number of these utils in one project. If you only need one or two of these in a small project, don't use this. Use small modules that do only one thing.
+
 ## Install with [npm](npmjs.org)
 
 ```bash
@@ -17,6 +24,7 @@ npm i utils --save
 - [API](#api)
 - [Code coverage](#code-coverage)
 - [Running tests](#running-tests)
+  * [Adding utils](#adding-utils)
 
 <!-- tocstop -->
 
@@ -801,6 +809,23 @@ npm i -d && npm test
 
 ## Contributing
 Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/jonschlinkert/utils/issues)
+
+### Adding utils
+
+Pull requests are always welcome, whether it's for fixing typos, improving docs, or anything else.
+
+**Adding utils**
+
+If you want to do a PR to add a util, please read the following first:
+ 
+- follow the same coding style as the rest of the library, same with code comments
+- add sufficient unit tests
+- Install dev dependencies and run `verb` 
+- Look over the README to make sure that verb rendered out the docs with your method and code comments.
+
+**Adding external modules as dependencies**
+
+- External modules will only be considered if they meet the same quality and coding standards as the rest of the library. At minimum this includes documentation, code comments, and unit tests. Benchmarks are also strongly preferred.
 
 ## Author
 
