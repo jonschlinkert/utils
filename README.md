@@ -813,9 +813,7 @@ Pull requests and stars are always welcome. For bugs and feature requests, [plea
 
 ### Adding utils
 
-Pull requests are always welcome, whether it's for fixing typos, improving docs, or anything else.
-
-**Adding utils**
+> Pull requests are always welcome, whether it's for fixing typos, improving docs, or anything else.
 
 If you want to do a PR to add a util, please read the following first:
  
