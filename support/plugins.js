@@ -29,6 +29,18 @@ exports.names = function names(options) {
 };
 
 
+exports.modularize = function modularize(options) {
+  return through.obj(function (file, enc, cb) {
+    var str = file.contents.toString();
+    // fix newlines before splitting out code
+    str = str.split(/\};\n+\/\*\*/).join('};\n\n/**');
+
+    file.contents = new Buffer(str);
+    this.push(file);
+    cb();
+  });
+};
+
 
 
 function namify(fp) {

@@ -54,4 +54,10 @@ verb.task('names', function () {
     .pipe(verb.dest('lib/'));
 });
 
+verb.task('modularize', function () {
+  return verb.src(['lib/**/*.js'])
+    .pipe(plugin.modularize())
+    .pipe(verb.dest('lib/'));
+});
+
 verb.task('default', ['test', 'readme']);
