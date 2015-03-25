@@ -2,6 +2,7 @@
 
 var fs = require('fs');
 var gutil = require('gulp-util');
+var plugin = require('./support/plugins');
 var istanbul = require('gulp-istanbul');
 var stripAnsi = require('strip-ansi');
 var jshint = require('gulp-jshint');
@@ -17,12 +18,6 @@ verb.helper('coverage', function (fp) {
 // ignore patterns for excluding TOC headings (for verb's built-in `toc` helper)
 verb.option('toc.ignore', ['Install', 'Contributing', 'Author', 'License']);
 
-// generate the README
-verb.task('rename', function () {
-  return verb.src(['lib/**/*.js'])
-    .pipe(verb.dest('.'));
-    .pipe(verb.dest('.'));
-});
 
 // generate the README
 verb.task('readme', ['test'], function () {
@@ -51,6 +46,12 @@ verb.task('test', ['lint'], function (cb) {
         }))
         .on('end', cb)
     });
+});
+
+verb.task('names', function () {
+  return verb.src(['lib/**/*.js'])
+    .pipe(plugin.names())
+    .pipe(verb.dest('lib/'));
 });
 
 verb.task('default', ['test', 'readme']);
