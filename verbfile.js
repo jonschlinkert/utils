@@ -1,15 +1,39 @@
 'use strict';
 
+var fs = require('fs');
 var gutil = require('gulp-util');
 var istanbul = require('gulp-istanbul');
+var stripAnsi = require('strip-ansi');
 var jshint = require('gulp-jshint');
 var mocha = require('gulp-mocha');
 var verb = require('verb');
 
+// template helper to include coverage report
+verb.helper('coverage', function (fp) {
+  var str = fs.readFileSync(fp, 'utf8');
+  return stripAnsi(str).replace(/^=.*/gm, '');
+});
+
+// ignore patterns for excluding TOC headings (for verb's built-in `toc` helper)
+verb.option('toc.ignore', ['Install', 'Contributing', 'Author', 'License']);
+
+// generate the README
+verb.task('rename', function () {
+  return verb.src(['lib/**/*.js'])
+    .pipe(verb.dest('.'));
+    .pipe(verb.dest('.'));
+});
+
+// generate the README
+verb.task('readme', ['test'], function () {
+  return verb.src('.verb.md')
+    .pipe(verb.dest('.'));
+});
+
 verb.task('lint', function () {
-  /* deps:jshint-stylish */
   return verb.src(['index.js', 'lib/**/*.js'])
     .pipe(jshint('.jshintrc'))
+    /* deps:jshint-stylish */
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
@@ -21,25 +45,12 @@ verb.task('test', ['lint'], function (cb) {
       verb.src(['test/*.js'])
         .pipe(mocha())
         .on('error', gutil.log)
-        .pipe(istanbul.writeReports())
-        .on('end', function () {
-          cb();
-        });
+        .pipe(istanbul.writeReports({
+          reporters: [ 'text' ],
+          reportOpts: {dir: 'coverage', file: 'summary.txt'}
+        }))
+        .on('end', cb)
     });
 });
 
-// ignore patterns for excluding TOC headings
-// (passed to the built-in `toc` helper in verb)
-verb.option('toc.ignore', [
-  'Install',
-  'Contributing',
-  'Author',
-  'License'
-]);
-
-verb.task('readme', function () {
-  return verb.src('.verb.md')
-    .pipe(verb.dest('.'));
-});
-
-verb.task('default', ['readme', 'lint', 'test']);
+verb.task('default', ['test', 'readme']);
