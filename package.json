@@ -33,8 +33,10 @@
     "any": "^1.0.0",
     "arr-diff": "^1.0.1",
     "arr-flatten": "^1.0.1",
+    "arr-map": "^2.0.0",
+    "arr-union": "^2.0.1",
     "array-slice": "^0.2.2",
-    "array-unique": "^0.2.0",
+    "array-unique": "^0.2.1",
     "center-align": "^0.1.1",
     "export-dirs": "^0.2.4",
     "export-files": "^2.0.1",
@@ -50,14 +52,20 @@
     "object.omit": "^0.2.1",
     "object.pick": "^1.1.1",
     "object.reduce": "^0.1.6",
-    "relative": "^2.0.0",
     "right-align": "^0.1.1",
     "word-wrap": "^1.0.2"
   },
   "devDependencies": {
+    "gulp-istanbul": "^0.7.0",
+    "gulp-jshint": "^1.9.4",
+    "gulp-mocha": "^2.0.0",
+    "gulp-util": "^3.0.4",
+    "jshint-stylish": "^1.0.1",
     "lodash": "^3.5.0",
-    "mocha": "^2.2.1",
-    "should": "^5.2.0"
+    "mocha": "*",
+    "should": "*",
+    "strip-ansi": "^2.0.1",
+    "verb": "^0.5.0"
   },
   "keywords": [
     "util",
