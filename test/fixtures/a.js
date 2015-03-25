@@ -1,3 +1,3 @@
-function foo(a, b, c) {
+exports.aaa = function aaa(a, b, c) {
   return a + b + c;
-}
+};

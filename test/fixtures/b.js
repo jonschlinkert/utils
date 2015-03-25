@@ -1,3 +1,3 @@
-function bar(x, y, z) {
+exports.bbb = function bbb(x, y, z) {
   return x + y + z;
-}
+};
