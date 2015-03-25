@@ -138,7 +138,7 @@ first(['a', 'b', 'c', 'd', 'e'], 2)
 //=> ['a', 'b']
 ```
 
-### [.flatten](./lib/array/flatten.js#L21)
+### [.flatten](./lib/array/flatten.js#L18)
 
 Recursively flatten an array or arrays. Uses the fastest implementation of array flatten for node.js
 
@@ -146,13 +146,30 @@ Recursively flatten an array or arrays. Uses the fastest implementation of array
 * `returns` **{Array}**: Flattened array  
 
 ```js
-var flatten = require('arr-flatten');
-
 flatten(['a', ['b', ['c']], 'd', ['e']]);
 //=> ['a', 'b', 'c', 'd', 'e']
 ```
 
+### [.forEach](./lib/array/forEach.js#L27)
 
+Loop over each item in an array and call the given function on every element.
+
+* `array` **{Array}**    
+* `fn` **{Function}**    
+* `thisArg` **{Object}**: Optionally pass a `thisArg` to be used as the context in which to call the function.    
+* `returns`: {Array}  
+
+```js
+forEach(['a', 'b', 'c'], function (ele) {
+  return ele + ele;
+});
+//=> ['aa', 'bb', 'cc']
+
+forEach(['a', 'b', 'c'], function (ele, i) {
+  return i + ele;
+});
+//=> ['0a', '1b', '2c']
+```
 
 
 
@@ -204,8 +221,6 @@ map(['a', 'b', 'c'], function (ele, i) {
 });
 //=> ['0a', '1b', '2c']
 ```
-
-
 
 
 
@@ -273,15 +288,77 @@ instead of throwing an error.
 
 
 
+### [.hasValues](./lib/lang/hasValues.js#L34)
+
+Returns true if any value exists, false if empty. Works for booleans, functions, numbers, strings, nulls, objects and arrays.
+
+* `object` **{Object}**: The object to check for `value`    
+* `value` **{*}**: the value to look for    
+* `returns` **{Boolean}**: True if any values exists.  
+
+```js
+utils.lang.hasValues('a');
+//=> true
+
+utils.lang.hasValues('');
+//=> false
+
+utils.lang.hasValues(1);
+//=> true
+
+utils.lang.hasValues({a: 'a'}});
+//=> true
+
+utils.lang.hasValues({}});
+//=> false
+
+utils.lang.hasValues(['a']);
+//=> true
+```
 
 
 
+### [.isArguments](./lib/lang/isArguments.js#L18)
 
+Return true if the given `value` is an arguments object.
 
+* `value` **{*}**: The value to check.    
+* `returns`: {Boolean}  
 
+```js
+isArguments(arguments)
+//=> 'true'
+```
 
+### [.isEmpty](./lib/lang/isEmpty.js#L37)
 
-### [.exports](./lib/language/isObject.js#L21)
+Returns true if the given value is empty, false if any value exists. Works for booleans, functions, numbers, strings, nulls, objects and arrays.
+
+* `object` **{Object}**: The object to check for `value`    
+* `value` **{*}**: the value to look for    
+* `returns` **{Boolean}**: False if any values exists.  
+
+```js
+utils.lang.isEmpty('a');
+//=> true
+
+utils.lang.isEmpty('');
+//=> false
+
+utils.lang.isEmpty(1);
+//=> true
+
+utils.lang.isEmpty({a: 'a'}});
+//=> true
+
+utils.lang.isEmpty({}});
+//=> false
+
+utils.lang.isEmpty(['a']);
+//=> true
+```
+
+### [.isObject](./lib/lang/isObject.js#L22)
 
 Return true if the given `value` is an object with keys.
 
@@ -294,6 +371,24 @@ isObject(['a', 'b', 'c'])
 
 isObject({a: 'b'})
 //=> 'true'
+```
+
+### [.isPlainObject](./lib/lang/isPlainObject.js#L23)
+
+Return true if the given `value` is an object with keys.
+
+* `value` **{Object}**: The value to check.    
+* `returns`: {Boolean}  
+
+```js
+isPlainObject(Object.create({}));
+//=> true
+isPlainObject(Object.create(Object.prototype));
+//=> true
+isPlainObject({foo: 'bar'});
+//=> true
+isPlainObject({});
+//=> true
 ```
 
 
@@ -347,10 +442,6 @@ Return true if `key` is an own, enumerable property of the given `obj`.
 ```js
 hasOwn(obj, key);
 ```
-
-
-
-
 
 
 
@@ -627,7 +718,7 @@ wordwrap("a b c d e f", {width: 5, newline: '<br>  '});
 -----------------------|-----------|-----------|-----------|-----------|
 File                   |   % Stmts |% Branches |   % Funcs |   % Lines |
 -----------------------|-----------|-----------|-----------|-----------|
-   array/              |     76.47 |     67.19 |     85.71 |     77.55 |
+   array/              |     76.24 |     67.19 |     85.71 |     77.32 |
       after.js         |       100 |        75 |       100 |       100 |
       arrayify.js      |       100 |       100 |       100 |       100 |
       before.js        |       100 |        75 |       100 |       100 |
@@ -640,7 +731,6 @@ File                   |   % Stmts |% Branches |   % Funcs |   % Lines |
       isArray.js       |       100 |       100 |       100 |       100 |
       last.js          |     88.89 |     83.33 |       100 |     88.24 |
       map.js           |       100 |       100 |       100 |       100 |
-      slice.js         |       100 |       100 |       100 |       100 |
       sort.js          |     90.91 |      87.5 |       100 |     90.91 |
       union.js         |       100 |       100 |       100 |       100 |
       unique.js        |       100 |       100 |       100 |       100 |
@@ -650,21 +740,21 @@ File                   |   % Stmts |% Branches |   % Funcs |   % Lines |
    fs/                 |        80 |       100 |       100 |        80 |
       tryReaddir.js    |        80 |       100 |       100 |        80 |
       tryRequire.js    |        80 |       100 |       100 |        80 |
-   language/           |      62.5 |        25 |         0 |      62.5 |
-      hasValue.js      |       100 |       100 |       100 |       100 |
+   lang/               |        75 |        50 |        25 |        75 |
+      hasValues.js     |       100 |       100 |       100 |       100 |
       isArguments.js   |        50 |        25 |         0 |        50 |
       isEmpty.js       |     66.67 |       100 |         0 |     66.67 |
+      isObject.js      |       100 |       100 |       100 |       100 |
+      isPlainObject.js |       100 |       100 |       100 |       100 |
    math/               |       100 |       100 |       100 |       100 |
       sum.js           |       100 |       100 |       100 |       100 |
-   object/             |     70.42 |     54.55 |     27.27 |     69.57 |
+   object/             |     69.57 |     54.55 |     27.27 |     68.66 |
       extend.js        |       100 |     83.33 |       100 |       100 |
       filter.js        |       100 |       100 |       100 |       100 |
       forIn.js         |       100 |       100 |       100 |       100 |
       forOwn.js        |       100 |       100 |       100 |       100 |
       functions.js     |     28.57 |         0 |         0 |     28.57 |
       hasOwn.js        |       100 |       100 |       100 |       100 |
-      isObject.js      |       100 |       100 |       100 |       100 |
-      isPlainObject.js |       100 |       100 |       100 |       100 |
       keys.js          |     33.33 |        50 |         0 |     33.33 |
       merge.js         |       100 |        75 |       100 |       100 |
       methods.js       |     28.57 |         0 |         0 |     28.57 |
@@ -695,7 +785,7 @@ File                   |   % Stmts |% Branches |   % Funcs |   % Lines |
       truncate.js      |       100 |       100 |       100 |       100 |
       wordwrap.js      |       100 |       100 |       100 |       100 |
 -----------------------|-----------|-----------|-----------|-----------|
-All files              |      84.1 |     75.64 |     72.41 |     83.07 |
+All files              |     84.15 |     75.95 |     72.88 |     83.12 |
 -----------------------|-----------|-----------|-----------|-----------|
 
 
