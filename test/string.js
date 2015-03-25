@@ -8,40 +8,10 @@
 'use strict';
 
 var _ = require('lodash');
-var utils = require('..')._;
+var utils = require('..').string;
 require('should');
 
 describe('string utils', function() {
-  describe('lowercase', function() {
-    it('should return an empty string when undefined.', function() {
-      utils.lowercase().should.equal('');
-    });
-    it('should lower case the characters in a string.', function() {
-      utils.lowercase("ABC").should.equal('abc');
-    });
-  });
-
-  describe('uppercase', function() {
-    it('should return an empty string when undefined.', function() {
-      utils.uppercase().should.equal('');
-    });
-    it('should upper case the characters in a string.', function() {
-      utils.uppercase("abc").should.equal('ABC');
-    });
-  });
-
-  describe('trim', function() {
-    it('should return an empty string when undefined.', function() {
-      utils.trim().should.equal('');
-    });
-    it('should strip leading whitespace from a string.', function() {
-      utils.trim("    abc").should.equal('abc');
-    });
-    it('should strip trailing whitespace from a string.', function() {
-      utils.trim("abc   ").should.equal('abc');
-    });
-  });
-
   describe('chop', function() {
     it('should return an empty string when undefined.', function() {
       utils.chop().should.equal('');
