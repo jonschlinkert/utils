@@ -13,7 +13,6 @@ npm i utils --save
 <!-- toc -->
 
 - [Usage](#usage)
-- [Code coverage](#code-coverage)
 - [Code links](#code-links)
 - [API](#api)
 - [Code coverage](#code-coverage)
@@ -23,32 +22,32 @@ npm i utils --save
 
 ## Usage
 
-To get all utils grouped by collection:
+**Utils, grouped by type**
+
+To get all utils, grouped by collection:
 
 ```js
 var utils = require('utils');
-
-// All utils are on the `_` property
-console.log(utils._);
 ```
 
-**Get a specific collection**
+**Utils on one object**
+
+To get all utils on one object:
 
 ```js
-var utils = require('utils');
-
-// get only the string utils
-var string = utils.string;
+// all utils are on the `_` property
+var utils = require('utils')._;
 ```
 
-## Code coverage
+**To get a specific collection**
 
+If you just want the `string` or `object` utils:
+
+```js
+var string = require('utils').string;
+var object = require('utils').object;
 ```
-Statements   : 99.72% ( 359/360 )
-Branches     : 97.4% ( 187/192 )
-Functions    : 100% ( 81/81 )
-Lines        : 99.68% ( 310/311 )
-```
+
 
 ## Code links 
 These links take you to the code for each function. There are currently 0 utils in 7 sub-categories:
