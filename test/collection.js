@@ -8,24 +8,23 @@
 'use strict';
 
 require('should');
-var utils = require('..')._;
-var _ = require('lodash');
+var utils = require('../index').collection;
 
-describe('collections', function() {
+describe('collection utils:', function() {
   describe('any', function() {
     it('should return an empty string when undefined.', function() {
       utils.any().should.be.false;
     });
     it('should return if a value exists in the given string.', function() {
-      utils.any("a-b-c", "a").should.be.true;
-      utils.any("a-b-c", "d").should.be.false;
+      utils.any('a-b-c', 'a').should.be.true;
+      utils.any('a-b-c', 'd').should.be.false;
     });
     it('should return if a value exists in the given object.', function() {
-      utils.any({a: "b", c: "d"}, "a").should.be.true;
-      utils.any([{a: "b", c: "d"}], {a: "b"}).should.be.true;
+      utils.any({a: 'b', c: 'd'}, 'a').should.be.true;
+      utils.any([{a: 'b', c: 'd'}], {a: 'b'}).should.be.true;
     });
     it('should return if a value exists in the given array.', function() {
-      utils.any("a-b-c", "d").should.be.false;
+      utils.any('a-b-c', 'd').should.be.false;
     });
   });
 
@@ -34,15 +33,15 @@ describe('collections', function() {
   //     utils.contains().should.be.false;
   //   });
   //   it('should return if a value exists in the given string.', function() {
-  //     utils.contains("a-b-c", "a").should.be.true;
-  //     utils.contains("a-b-c", "d").should.be.false;
+  //     utils.contains('a-b-c', 'a').should.be.true;
+  //     utils.contains('a-b-c', 'd').should.be.false;
   //   });
   //   it('should return if a value exists in the given object.', function() {
-  //     utils.contains({a: "b", c: "d"}, "a").should.be.true;
-  //     utils.contains([{a: "b", c: "d"}], {a: "b"}).should.be.true;
+  //     utils.contains({a: 'b', c: 'd'}, 'a').should.be.true;
+  //     utils.contains([{a: 'b', c: 'd'}], {a: 'b'}).should.be.true;
   //   });
   //   it('should return if a value exists in the given array.', function() {
-  //     utils.contains("a-b-c", "d").should.be.false;
+  //     utils.contains('a-b-c', 'd').should.be.false;
   //   });
   // });
 });
