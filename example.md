@@ -5,7 +5,7 @@
 All utils from all categories are placed on the `_` object. 
 
 ```js
-{ _:
+{ _: 
    { wordwrap: [Function: wordwrap],
      truncate: [Function: truncate],
      toString: [Function: toString],
@@ -39,11 +39,11 @@ All utils from all categories are placed on the `_` object.
      forIn: [Function: forIn],
      filter: [Function: filter],
      extend: [Function: extend],
+     defaults: [Function: defaults],
      sum: [Function: sum_],
      isPlainObject: [Function: isPlainObject],
      isObject: [Function: isObject],
      isEmpty: [Function: isEmpty],
-     isArguments: [Function: isArguments],
      hasValues: [Function: hasValue],
      tryRequire: [Function: tryRequire],
      tryReaddir: [Function: tryReaddir],
@@ -52,19 +52,21 @@ All utils from all categories are placed on the `_` object.
      unique: [Function: unique_],
      union: [Function: union_],
      sort: [Function: sort],
+     slice: [Function: slice],
      map: [Function: map],
      last: [Function: last_],
      isArray: [Function: isArray],
      indexOf: [Function: indexOf],
-     forEach: [Function: forEach],
+     forEach: [Function: each],
      flatten: [Function: flatten],
      first: [Function: first],
+     each: [Function: each],
      difference: [Function: difference_],
      compact: [Function: compact],
      before: [Function: before],
      arrayify: [Function: arrayify],
      after: [Function: after_] },
-  string:
+  string: 
    { wordwrap: [Function: wordwrap],
      truncate: [Function: truncate],
      toString: [Function: toString],
@@ -85,7 +87,7 @@ All utils from all categories are placed on the `_` object.
      chop: [Function: chop],
      centerAlign: [Function: centerAlign],
      camelcase: [Function: camelcase] },
-  object:
+  object: 
    { some: [Function: some],
      reduce: [Function: reduce],
      pick: [Function: pick],
@@ -98,29 +100,31 @@ All utils from all categories are placed on the `_` object.
      forOwn: [Function: forOwn],
      forIn: [Function: forIn],
      filter: [Function: filter],
-     extend: [Function: extend] },
+     extend: [Function: extend],
+     defaults: [Function: defaults] },
   math: { sum: [Function: sum_] },
-  lang:
+  lang: 
    { isPlainObject: [Function: isPlainObject],
      isObject: [Function: isObject],
      isEmpty: [Function: isEmpty],
-     isArguments: [Function: isArguments],
      hasValues: [Function: hasValue] },
-  fs:
+  fs: 
    { tryRequire: [Function: tryRequire],
      tryReaddir: [Function: tryReaddir] },
   collection: { contains: [Function: contains], any: [Function: any] },
-  array:
+  array: 
    { unique: [Function: unique_],
      union: [Function: union_],
      sort: [Function: sort],
+     slice: [Function: slice],
      map: [Function: map],
      last: [Function: last_],
      isArray: [Function: isArray],
      indexOf: [Function: indexOf],
-     forEach: [Function: forEach],
+     forEach: [Function: each],
      flatten: [Function: flatten],
      first: [Function: first],
+     each: [Function: each],
      difference: [Function: difference_],
      compact: [Function: compact],
      before: [Function: before],
