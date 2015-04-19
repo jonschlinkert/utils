@@ -33,6 +33,31 @@ describe('objects', function() {
     });
   });
 
+  describe('defaults', function() {
+    var ctx = {};
+    beforeEach(function () {
+      ctx.foo = {aaa: 'bbb', ccc: 'ddd'};
+      ctx.bar = {ccc: 'eee', fff: 'ggg'};
+    });
+
+    it('should return an empty string when undefined.', function() {
+      utils.defaults().should.eql({});
+    });
+
+    it('should extend the first object with missing properties from the second.', function() {
+      utils.defaults(ctx.foo, ctx.bar).should.eql({aaa:'bbb',ccc:'ddd',fff:'ggg'});
+    });
+
+    it('should ignore non-objects.', function() {
+      utils.defaults(ctx.foo, ctx.bar, 'baz').should.eql({aaa:'bbb',ccc:'ddd',fff:'ggg'});
+    });
+
+    it('should use the default object as context.', function() {
+      ctx.bar = {aaa: 'ddd'};
+      utils.defaults(ctx.foo, ctx.bar).should.eql({aaa:'bbb',ccc:'ddd'}, 'should not overwrite `aaa`');
+    });
+  });
+
   describe('extend', function() {
     var ctx = {};
     beforeEach(function () {
