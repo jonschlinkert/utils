@@ -1,7 +1,7 @@
 /*!
  * utils <https://github.com/jonschlinkert/utils>
  *
- * Copyright (c) 2014 Jon Schlinkert, contributors.
+ * Copyright (c) 2014 Jon Schlinkert.
  * Licensed under the MIT license.
  */
 
