@@ -1,7 +1,7 @@
 {
   "name": "utils",
   "description": "Fast, generic JavaScript/node.js utility functions.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "https://github.com/jonschlinkert/utils",
   "author": {
     "name": "Jon Schlinkert",
@@ -52,7 +52,7 @@
     "object.filter": "^0.3.0",
     "object.omit": "^1.1.0",
     "object.pick": "^1.1.1",
-    "object.reduce": "^0.1.6",
+    "object.reduce": "^0.1.7",
     "right-align": "^0.1.1",
     "word-wrap": "^1.0.2"
   },
@@ -68,7 +68,7 @@
     "relative": "^3.0.0",
     "should": "^6.0.1",
     "through2": "^0.6.5",
-    "verb": "^0.5.0",
+    "verb": "^0.7.0",
     "vinyl": "^0.4.6"
   },
   "keywords": [
