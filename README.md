@@ -2,7 +2,6 @@
 
 > Fast, generic JavaScript/node.js utility functions.
 
-
 ## Install with [npm](npmjs.org)
 
 ```bash
@@ -43,7 +42,6 @@ var utils = require('utils');
 
 See [example.md](./example.md) for an example of the `utils` object.
 
-
 **Get all utils on one object**
 
 If you want all utils on a single object (e.g. not grouped by collection):
@@ -63,13 +61,18 @@ var object = require('utils').object;
 ```
 
 ## API
+
 ### [.after](lib/array/after.js#L19)
 
 Returns all of the items in an array after the specified index.
 
+**Params**
+
 * `array` **{Array}**: Collection    
 * `n` **{Number}**: Starting index (number of items to exclude)    
 * `returns` **{Array}**: Array exluding `n` items.  
+
+**Example**
 
 ```js
 after(['a', 'b', 'c'], 1)
@@ -80,8 +83,12 @@ after(['a', 'b', 'c'], 1)
 
 Cast the give `value` to an array.
 
+**Params**
+
 * `val` **{*}**    
-* `returns`: {Array}  
+* `returns` **{Array}**  
+
+**Example**
 
 ```js
 arrayify('abc')
@@ -95,9 +102,13 @@ arrayify(['abc'])
 
 Returns all of the items in an array up to the specified number Opposite of `<%= after() %`.
 
+**Params**
+
 * `array` **{Array}**    
 * `n` **{Number}**    
 * `returns` **{Array}**: Array excluding items after the given number.  
+
+**Example**
 
 ```js
 before(['a', 'b', 'c'], 2)
@@ -108,8 +119,12 @@ before(['a', 'b', 'c'], 2)
 
 Remove all falsey values from an array.
 
+**Params**
+
 * `arr` **{Array}**    
-* `returns`: {Array}  
+* `returns` **{Array}**  
+
+**Example**
 
 ```js
 compact([null, a, undefined, 0, false, b, c, '']);
@@ -120,9 +135,13 @@ compact([null, a, undefined, 0, false, b, c, '']);
 
 Return the difference between the first array and additional arrays.
 
+**Params**
+
 * `a` **{Array}**    
 * `b` **{Array}**    
-* `returns`: {Array}  
+* `returns` **{Array}**  
+
+**Example**
 
 ```js
 var a = ['a', 'b', 'c', 'd'];
@@ -136,10 +155,14 @@ diff(a, b);
 
 Loop over each item in an array and call the given function on every element.
 
+**Params**
+
 * `array` **{Array}**    
 * `fn` **{Function}**    
 * `thisArg` **{Object}**: Optionally pass a `thisArg` to be used as the context in which to call the function.    
-* `returns`: {Array}  
+* `returns` **{Array}**  
+
+**Example**
 
 ```js
 each(['a', 'b', 'c'], function (ele) {
@@ -157,9 +180,13 @@ each(['a', 'b', 'c'], function (ele, i) {
 
 Returns the first item, or first `n` items of an array.
 
+**Params**
+
 * `array` **{Array}**    
 * `n` **{Number}**: Number of items to return, starting at `0`.    
-* `returns`: {Array}  
+* `returns` **{Array}**  
+
+**Example**
 
 ```js
 first(['a', 'b', 'c', 'd', 'e'], 2)
@@ -170,8 +197,12 @@ first(['a', 'b', 'c', 'd', 'e'], 2)
 
 Recursively flatten an array or arrays. Uses the fastest implementation of array flatten for node.js
 
+**Params**
+
 * `array` **{Array}**    
 * `returns` **{Array}**: Flattened array  
+
+**Example**
 
 ```js
 flatten(['a', ['b', ['c']], 'd', ['e']]);
@@ -182,10 +213,14 @@ flatten(['a', ['b', ['c']], 'd', ['e']]);
 
 Loop over each item in an array and call the given function on every element.
 
+**Params**
+
 * `array` **{Array}**    
 * `fn` **{Function}**    
 * `thisArg` **{Object}**: Optionally pass a `thisArg` to be used as the context in which to call the function.    
-* `returns`: {Array}  
+* `returns` **{Array}**  
+
+**Example**
 
 ```js
 forEach(['a', 'b', 'c'], function (ele) {
@@ -203,7 +238,11 @@ forEach(['a', 'b', 'c'], function (ele, i) {
 
 Returns true if the given `value` is an array.
 
+**Params**
+
 * `value` **{Array}**: Value to test.    
+
+**Example**
 
 ```js
 isArray(1);
@@ -217,9 +256,13 @@ isArray([1]);
 
 Returns the last item, or last `n` items of an array.
 
+**Params**
+
 * `array` **{Array}**    
 * `n` **{Number}**: Number of items to return, starting with the last item.    
-* `returns`: {Array}  
+* `returns` **{Array}**  
+
+**Example**
 
 ```js
 last(['a', 'b', 'c', 'd', 'e'], 2)
@@ -230,9 +273,13 @@ last(['a', 'b', 'c', 'd', 'e'], 2)
 
 Returns a new array with the results of calling the given function on every element in the array. This is a faster, node.js focused alternative to JavaScript's native array map.
 
+**Params**
+
 * `array` **{Array}**    
 * `fn` **{Function}**    
-* `returns`: {Array}  
+* `returns` **{Array}**  
+
+**Example**
 
 ```js
 map(['a', 'b', 'c'], function (ele) {
@@ -250,9 +297,13 @@ map(['a', 'b', 'c'], function (ele, i) {
 
 Alternative to JavaScript's native array-slice method. Slices `array` from the `start` index up to but not including the `end` index.
 
+**Params**
+
 * `array` **{Array}**: the array to slice.    
 * `start` **{Number}**: Optionally define the starting index.    
 * `end` **{Number}**: Optionally define the ending index.    
+
+**Example**
 
 ```js
 var arr = ['a', 'b', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
@@ -265,8 +316,12 @@ slice(arr, 3, 6);
 
 Return an array free of duplicate values. Fastest ES5 implementation.
 
+**Params**
+
 * `array` **{Array}**: The array to uniquify    
 * `returns` **{Array}**: With all union values.  
+
+**Example**
 
 ```js
 union(['a', 'b', 'c', 'c']);
@@ -277,8 +332,12 @@ union(['a', 'b', 'c', 'c']);
 
 Return an array free of duplicate values. Fastest ES5 implementation.
 
+**Params**
+
 * `array` **{Array}**: The array to uniquify    
 * `returns` **{Array}**: With all unique values.  
+
+**Example**
 
 ```js
 unique(['a', 'b', 'c', 'c']);
@@ -287,45 +346,57 @@ unique(['a', 'b', 'c', 'c']);
 
 ### [.any](lib/collection/any.js#L14)
 
+Returns `true` if `value` exists in the given string, array
+or object. See [any] for documentation.
+
+**Params**
+
 * `value` **{*}**    
 * `target` **{*}**    
 * `options` **{Object}**    
 
-Returns `true` if `value` exists in the given string, array
-or object. See [any] for documentation.
-
 ### [.contains](lib/collection/contains.js#L17)
-
-* `collection` **{Array|Object}**    
-* `string` **{*}**    
-* `returns`: {Boolean}  
 
 Return true if `collection` contains `value`
 
-### [.tryReaddir](lib/fs/tryReaddir.js#L16)
+**Params**
 
-* `dir` **{String}**: Starting directory    
-* `returns` **{Array}**: Array of files.  
+* `collection` **{Array|Object}**    
+* `string` **{*}**    
+* `returns` **{Boolean}**  
+
+### [.tryReaddir](lib/fs/tryReaddir.js#L16)
 
 Try to read the given `directory`. Wraps `fs.readdirSync()` with
 a try/catch, so it fails silently instead of throwing when the
 directory doesn't exist.
 
-### [.tryRequire](lib/fs/tryRequire.js#L15)
+**Params**
 
-* `fp` **{String}**: File path of the file to require    
-* `returns` **{*}**: Returns the module function/object, or `null` if not found.  
+* `dir` **{String}**: Starting directory    
+* `returns` **{Array}**: Array of files.  
+
+### [.tryRequire](lib/fs/tryRequire.js#L15)
 
 Try to require the given file, returning `null` if not successful
 instead of throwing an error.
+
+**Params**
+
+* `fp` **{String}**: File path of the file to require    
+* `returns` **{*}**: Returns the module function/object, or `null` if not found.  
 
 ### [.hasValues](lib/lang/hasValues.js#L34)
 
 Returns true if any value exists, false if empty. Works for booleans, functions, numbers, strings, nulls, objects and arrays.
 
+**Params**
+
 * `object` **{Object}**: The object to check for `value`    
 * `value` **{*}**: the value to look for    
 * `returns` **{Boolean}**: True if any values exists.  
+
+**Example**
 
 ```js
 utils.lang.hasValues('a');
@@ -351,9 +422,13 @@ utils.lang.hasValues(['a']);
 
 Returns true if the given value is empty, false if any value exists. Works for booleans, functions, numbers, strings, nulls, objects and arrays.
 
+**Params**
+
 * `object` **{Object}**: The object to check for `value`    
 * `value` **{*}**: the value to look for    
 * `returns` **{Boolean}**: False if any values exists.  
+
+**Example**
 
 ```js
 utils.lang.isEmpty('a');
@@ -379,8 +454,12 @@ utils.lang.isEmpty(['a']);
 
 Return true if the given `value` is an object with keys.
 
+**Params**
+
 * `value` **{Object}**: The value to check.    
-* `returns`: {Boolean}  
+* `returns` **{Boolean}**  
+
+**Example**
 
 ```js
 isObject(['a', 'b', 'c'])
@@ -394,8 +473,12 @@ isObject({a: 'b'})
 
 Return true if the given `value` is an object with keys.
 
+**Params**
+
 * `value` **{Object}**: The value to check.    
-* `returns`: {Boolean}  
+* `returns` **{Boolean}**  
+
+**Example**
 
 ```js
 isPlainObject(Object.create({}));
@@ -412,8 +495,12 @@ isPlainObject({});
 
 Returns the sum of all numbers in the given array.
 
+**Params**
+
 * `array` **{Array}**: Array of numbers to add up.    
-* `returns`: {Number}  
+* `returns` **{Number}**  
+
+**Example**
 
 ```js
 sum([1, 2, 3, 4, 5])
@@ -422,26 +509,34 @@ sum([1, 2, 3, 4, 5])
 
 ### [.defaults](lib/object/defaults.js#L13)
 
+Extend `object` with properties of other `objects`
+
+**Params**
+
 * `object` **{Object}**: The target object. Pass an empty object to shallow clone.    
 * `objects` **{Object}**    
-* `returns`: {Object}  
-
-Extend `object` with properties of other `objects`
+* `returns` **{Object}**  
 
 ### [.extend](lib/object/extend.js#L16)
 
+Extend `o` with properties of other `objects`.
+
+**Params**
+
 * `o` **{Object}**: The target object. Pass an empty object to shallow clone.    
 * `objects` **{Object}**    
-* `returns`: {Object}  
-
-Extend `o` with properties of other `objects`.
+* `returns` **{Object}**  
 
 ### [.functions](lib/object/functions.js#L20)
 
 Returns a copy of the given `obj` filtered to have only enumerable properties that have function values.
 
+**Params**
+
 * `obj` **{Object}**    
-* `returns`: {Object}  
+* `returns` **{Object}**  
+
+**Example**
 
 ```js
 functions({a: 'b', c: function() {}});
@@ -452,9 +547,13 @@ functions({a: 'b', c: function() {}});
 
 Return true if `key` is an own, enumerable property of the given `obj`.
 
+**Params**
+
 * `key` **{String}**    
 * `obj` **{Object}**: Optionally pass an object to check.    
-* `returns`: {Boolean}  
+* `returns` **{Boolean}**  
+
+**Example**
 
 ```js
 hasOwn(obj, key);
@@ -462,35 +561,75 @@ hasOwn(obj, key);
 
 ### [.keys](lib/object/keys.js#L15)
 
-* `obj` **{Object}**    
-* `returns` **{Array}**: Array of keys.  
-
 Return an array of keys for the given `obj`. Uses `Object.keys`
 when available, otherwise falls back on `forOwn`.
 
-### [.merge](lib/object/merge.js#L23)
+**Params**
 
-* `o` **{Object}**: The target object. Pass an empty object to shallow clone.    
-* `objects` **{Object}**    
-* `returns`: {Object}  
+* `obj` **{Object}**    
+* `returns` **{Array}**: Array of keys.  
+
+### [.merge](lib/object/merge.js#L23)
 
 Recursively combine the properties of `o` with the
 properties of other `objects`.
 
-### [.methods](lib/object/methods.js#L15)
+**Params**
 
-* `obj` **{Object}**    
-* `returns`: {Array}  
+* `o` **{Object}**: The target object. Pass an empty object to shallow clone.    
+* `objects` **{Object}**    
+* `returns` **{Object}**  
+
+### [.methods](lib/object/methods.js#L15)
 
 Returns a list of all enumerable properties of `obj` that have function
 values
+
+**Params**
+
+* `obj` **{Object}**    
+* `returns` **{Array}**  
+
+### [.reduce](lib/object/reduce.js#L32)
+
+Reduces an object to a value that is the accumulated result of running each property in the object through a callback.
+
+**Params**
+
+* `obj` **{Object}**: The object to iterate over.    
+* `iterator` **{Function}**: Iterator function    
+* `initial` **{Object}**: Initial value.    
+* `thisArg` **{Object}**: The `this` binding of the iterator function.    
+* `returns` **{Object}**  
+
+**Example**
+
+```js
+var a = {a: 'foo', b: 'bar', c: 'baz'};
+
+reduce(a, function (acc, value, key, obj) {
+  // `acc`- the initial value (or value from the previous callback call),
+  // `value`- the of the current property,
+  // `key`- the of the current property, and
+  // `obj` - original object
+
+  acc[key] = value.toUpperCase();
+  return acc;
+}, {});
+
+//=> {a: 'FOO', b: 'BAR', c: 'BAZ'};
+```
 
 ### [.camelcase](lib/string/camelcase.js#L20)
 
 camelCase the characters in `string`.
 
+**Params**
+
 * `string` **{String}**: The string to camelcase.    
-* `returns`: {String}  
+* `returns` **{String}**  
+
+**Example**
 
 ```js
 camelcase("foo bar baz");
@@ -501,8 +640,12 @@ camelcase("foo bar baz");
 
 Center align the characters in a string using non-breaking spaces.
 
+**Params**
+
 * `str` **{String}**: The string to reverse.    
 * `returns` **{String}**: Centered string.  
+
+**Example**
 
 ```js
 centerAlign("abc");
@@ -512,8 +655,12 @@ centerAlign("abc");
 
 Like trim, but removes both extraneous whitespace and non-word characters from the beginning and end of a string.
 
+**Params**
+
 * `string` **{String}**: The string to chop.    
-* `returns`: {String}  
+* `returns` **{String}**  
+
+**Example**
 
 ```js
 chop("_ABC_");
@@ -530,9 +677,13 @@ chop(" ABC ");
 
 Count the number of occurrances of a substring within a string.
 
+**Params**
+
 * `string` **{String}**    
 * `substring` **{String}**    
 * `returns` **{Number}**: The occurances of `substring` in `string`  
+
+**Example**
 
 ```js
 count("abcabcabc", "a");
@@ -543,8 +694,12 @@ count("abcabcabc", "a");
 
 dash-case the characters in `string`. This is similar to [slugify], but [slugify] makes the string compatible to be used as a URL slug.
 
+**Params**
+
 * `string` **{String}**    
-* `returns`: {String}  
+* `returns` **{String}**  
+
+**Example**
 
 ```js
 dashcase("a b.c d_e");
@@ -555,8 +710,12 @@ dashcase("a b.c d_e");
 
 dot.case the characters in `string`.
 
+**Params**
+
 * `string` **{String}**    
-* `returns`: {String}  
+* `returns` **{String}**  
+
+**Example**
 
 ```js
 dotcase("a-b-c d_e");
@@ -567,10 +726,14 @@ dotcase("a-b-c d_e");
 
 Truncate a string to the specified `length`, and append it with an elipsis, `…`.
 
+**Params**
+
 * `str` **{String}**    
 * `length` **{Number}**: The desired length of the returned string.    
 * `ch` **{String}**: Optionally pass custom characters to append. Default is `…`.    
 * `returns` **{String}**: The truncated string.  
+
+**Example**
 
 ```js
 ellipsis("<span>foo bar baz</span>", 7);
@@ -581,8 +744,12 @@ ellipsis("<span>foo bar baz</span>", 7);
 
 Replace spaces in a string with hyphens. This
 
+**Params**
+
 * `string` **{String}**    
-* `returns`: {String}  
+* `returns` **{String}**  
+
+**Example**
 
 ```js
 hyphenate("a b c");
@@ -593,8 +760,12 @@ hyphenate("a b c");
 
 Returns true if the value is a string.
 
+**Params**
+
 * `val` **{String}**    
 * `returns` **{Boolean}**: True if the value is a string.  
+
+**Example**
 
 ```js
 isString('abc');
@@ -608,8 +779,12 @@ isString(null);
 
 PascalCase the characters in `string`.
 
+**Params**
+
 * `string` **{String}**    
-* `returns`: {String}  
+* `returns` **{String}**  
+
+**Example**
 
 ```js
 pascalcase("foo bar baz");
@@ -620,8 +795,12 @@ pascalcase("foo bar baz");
 
 path/case the characters in `string`.
 
+**Params**
+
 * `string` **{String}**    
-* `returns`: {String}  
+* `returns` **{String}**  
+
+**Example**
 
 ```js
 pathcase("a-b-c d_e");
@@ -632,10 +811,14 @@ pathcase("a-b-c d_e");
 
 Replace occurrences of `a` with `b`.
 
+**Params**
+
 * `str` **{String}**    
 * `a` **{String|RegExp}**: Can be a string or regexp.    
 * `b` **{String}**    
-* `returns`: {String}  
+* `returns` **{String}**  
+
+**Example**
 
 ```js
 replace("abcabc", /a/, "z");
@@ -646,8 +829,12 @@ replace("abcabc", /a/, "z");
 
 Reverse the characters in a string.
 
+**Params**
+
 * `str` **{String}**: The string to reverse.    
-* `returns`: {String}  
+* `returns` **{String}**  
+
+**Example**
 
 ```js
 reverse("abc");
@@ -658,8 +845,12 @@ reverse("abc");
 
 Right align the characters in a string using non-breaking spaces.
 
+**Params**
+
 * `str` **{String}**: The string to reverse.    
 * `returns` **{String}**: Right-aligned string.  
+
+**Example**
 
 ```js
 rightAlign(str);
@@ -669,8 +860,12 @@ rightAlign(str);
 
 Sentence-case the characters in `string`.
 
+**Params**
+
 * `string` **{String}**    
-* `returns`: {String}  
+* `returns` **{String}**  
+
+**Example**
 
 ```js
 sentencecase("foo bar baz.");
@@ -681,8 +876,12 @@ sentencecase("foo bar baz.");
 
 snake_case the characters in `string`.
 
+**Params**
+
 * `string` **{String}**    
-* `returns`: {String}  
+* `returns` **{String}**  
+
+**Example**
 
 ```js
 snakecase("a-b-c d_e");
@@ -693,9 +892,13 @@ snakecase("a-b-c d_e");
 
 Truncate a string by removing all HTML tags and limiting the result to the specified `length`.
 
+**Params**
+
 * `str` **{String}**    
 * `length` **{Number}**: The desired length of the returned string.    
 * `returns` **{String}**: The truncated string.  
+
+**Example**
 
 ```js
 truncate("<span>foo bar baz</span>", 7);
@@ -706,9 +909,13 @@ truncate("<span>foo bar baz</span>", 7);
 
 Wrap words to a specified width using [word-wrap].
 
+**Params**
+
 * `string` **{String}**: The string with words to wrap.    
 * `object` **{Options}**: Options to pass to [word-wrap]    
 * `returns` **{String}**: Formatted string.  
+
+**Example**
 
 ```js
 wordwrap("a b c d e f", {width: 5, newline: '<br>  '});
@@ -796,18 +1003,18 @@ File                   |   % Stmts |% Branches |   % Funcs |   % Lines |
 -----------------------|-----------|-----------|-----------|-----------|
 All files              |     86.43 |     79.05 |     76.79 |     85.34 |
 -----------------------|-----------|-----------|-----------|-----------|
-
 ```
 
 ## Running tests
+
 Install dev dependencies:
 
 ```bash
 npm i -d && npm test
 ```
 
-
 ## Contributing
+
 > Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/jonschlinkert/utils/issues)
 
 ### Adding utils
@@ -821,7 +1028,7 @@ If you want to do a PR to add a util, please read the following first:
 
 **Adding external modules as dependencies**
 
-  - External modules will only be considered if they meet the same quality and coding standards as the rest of the library. At minimum this includes documentation, code comments, and unit tests. Benchmarks are also strongly preferred.
+- External modules will only be considered if they meet the same quality and coding standards as the rest of the library. At minimum this includes documentation, code comments, and unit tests. Benchmarks are also strongly preferred.
 
 ### Updating the docs
 
@@ -831,72 +1038,76 @@ Do not edit the readme manually since [verb] is used to generate documentation.
   - Everything else, please look over the [.verb.md](./.verb.md) template to see where the error is, then [run verb](#running-verb).
 
 ### Running verb
+
 Run [verb] to generate documentation:
 
 ```js
 npm i -d && verb
 ```
 
-
-
 ## About
 
 **Why another utils lib?**
 
-  - I'm a node.js developer. I want fast, light, dependable utility functions for node.js projects. 
+- I'm a node.js developer. I want fast, light, dependable utility functions for node.js projects. 
   - Do you really need bloated, everything-but-the-kitchen-sink functions that are guaranteed to work with IE 4, **for your Yeoman generator or gulp plugin**!? Nonsense. 
   - The benchmarks that accompany many of the functions in the library show that in some cases, the penalty for using such "kitchen-sink" code is a 2,000-5,000% reduction in speed. Sometimes greater.
 
 **Project goals**
 
-  - Fastest implementation of each method, without too much compromise. Covering uncommon cases is fine, but don't go overboard.
+- Fastest implementation of each method, without too much compromise. Covering uncommon cases is fine, but don't go overboard.
   - Clean well-documented, commented code.
   - [When it makes sense](#adding-utils), external libraries are used and exposed instead of writing new code. 
   - Focus on node.js usage and projects that are likely to use a number of these utils in one project. If you only need one or two of these in a small project, don't use this. Use small modules that do only one thing.
 
 ## Related projects
+
 > This project depends on these great libraries:
 
- * [any](https://github.com/jonschlinkert/any): Returns `true` if a value exists in the given string, array or object.
- * [arr-diff](https://github.com/jonschlinkert/arr-diff): Returns an array with only the unique values from the first array, by excluding all values from additional arrays using strict equality for comparisons.
- * [arr-flatten](https://github.com/jonschlinkert/arr-flatten): Recursively flatten an array or arrays. This is the fastest implementation of array flatten.
- * [arr-map](https://github.com/jonschlinkert/arr-map): Faster, node.js focused alternative to JavaScript's native array map.
- * [arr-union](https://github.com/jonschlinkert/arr-union): Combines a list of arrays, returning a single array with unique values, using strict equality for comparisons.
- * [array-each](https://github.com/jonschlinkert/array-each): Loop over each item in an array and call the given function on every element.
- * [array-slice](https://github.com/jonschlinkert/array-slice): Array-slice method. Slices `array` from the `start` index up to, but not including, the `end` index.
- * [array-unique](https://github.com/jonschlinkert/array-unique): Return an array free of duplicate values. Fastest ES5 implementation.
- * [center-align](https://github.com/jonschlinkert/center-align): Center-align the text in a string.
- * [export-dirs](https://github.com/jonschlinkert/export-dirs): Export directories and their files as node.js modules.
- * [export-files](https://github.com/jonschlinkert/export-files): node.js utility for exporting a directory of files as modules.
- * [for-in](https://github.com/jonschlinkert/for-in): Iterate over the own and inherited enumerable properties of an objecte, and return an object with properties that evaluate to true from the callback. Exit early by returning `false`. JavaScript/Node.js
- * [for-own](https://github.com/jonschlinkert/for-own): Iterate over the own enumerable properties of an object, and return an object with properties that evaluate to true from the callback. Exit early by returning `false`. JavaScript/Node.js.
- * [has-values](https://github.com/jonschlinkert/has-values): Returns true if any values exist, false if empty. Works for booleans, functions, numbers, strings, nulls, objects and arrays. 
- * [is-number](https://github.com/jonschlinkert/is-number): Returns true if the value is a number. comprehensive tests.
- * [is-plain-object](https://github.com/jonschlinkert/is-plain-object): Returns true if an object was created by the `Object` constructor.
- * [kind-of](https://github.com/jonschlinkert/kind-of): Get the native type of a value.
- * [make-iterator](https://github.com/jonschlinkert/make-iterator): Convert an argument into a valid iterator. Based on the `.makeIterator()` implementation in mout https://github.com/mout/mout.
- * [object.defaults](https://github.com/jonschlinkert/object.defaults): Like `extend` but only copies missing properties/values to the target object.
- * [object.filter](https://github.com/jonschlinkert/object.filter): Create a new object filtered to have only properties for which the callback returns true.
- * [object.omit](https://github.com/jonschlinkert/object.omit): Return a copy of an object without the given key, or array of keys.
- * [object.pick](https://github.com/jonschlinkert/object.pick): Returns a filtered copy of an object with only the specified keys, like `pick` from lo-dash / underscore.
- * [object.reduce](https://github.com/jonschlinkert/object.reduce): Reduces an object to a value that is the accumulated result of running each property in the object through a callback.
- * [right-align](https://github.com/jonschlinkert/right-align): Right-align the text in a string.
- * [word-wrap](https://github.com/jonschlinkert/word-wrap): Wrap words to a specified length.
+* [any](https://github.com/jonschlinkert/any): Returns `true` if a value exists in the given string,… [more](https://github.com/jonschlinkert/any)
+* [arr-diff](https://github.com/jonschlinkert/arr-diff): Returns an array with only the unique values from the… [more](https://github.com/jonschlinkert/arr-diff)
+* [arr-flatten](https://github.com/jonschlinkert/arr-flatten): Recursively flatten an array or arrays. This is the fastest… [more](https://github.com/jonschlinkert/arr-flatten)
+* [arr-map](https://github.com/jonschlinkert/arr-map): Faster, node.js focused alternative to JavaScript's native array map.
+* [arr-union](https://github.com/jonschlinkert/arr-union): Combines a list of arrays, returning a single array with… [more](https://github.com/jonschlinkert/arr-union)
+* [array-each](https://github.com/jonschlinkert/array-each): Loop over each item in an array and call the… [more](https://github.com/jonschlinkert/array-each)
+* [array-slice](https://github.com/jonschlinkert/array-slice): Array-slice method. Slices `array` from the `start` index up to,… [more](https://github.com/jonschlinkert/array-slice)
+* [array-unique](https://github.com/jonschlinkert/array-unique): Return an array free of duplicate values. Fastest ES5 implementation.
+* [center-align](https://github.com/jonschlinkert/center-align): Center-align the text in a string.
+* [export-dirs](https://github.com/jonschlinkert/export-dirs): Export directories and their files as node.js modules.
+* [export-files](https://github.com/jonschlinkert/export-files): node.js utility for exporting a directory of files as modules.
+* [for-in](https://github.com/jonschlinkert/for-in): Iterate over the own and inherited enumerable properties of an… [more](https://github.com/jonschlinkert/for-in)
+* [for-own](https://github.com/jonschlinkert/for-own): Iterate over the own enumerable properties of an object, and… [more](https://github.com/jonschlinkert/for-own)
+* [has-values](https://github.com/jonschlinkert/has-values): Returns true if any values exist, false if empty. Works… [more](https://github.com/jonschlinkert/has-values)
+* [is-number](https://github.com/jonschlinkert/is-number): Returns true if the value is a number. comprehensive tests.
+* [is-plain-object](https://github.com/jonschlinkert/is-plain-object): Returns true if an object was created by the `Object`… [more](https://github.com/jonschlinkert/is-plain-object)
+* [kind-of](https://github.com/jonschlinkert/kind-of): Get the native type of a value.
+* [make-iterator](https://github.com/jonschlinkert/make-iterator): Convert an argument into a valid iterator. Based on the… [more](https://github.com/jonschlinkert/make-iterator)
+* [object.defaults](https://github.com/jonschlinkert/object.defaults): Like `extend` but only copies missing properties/values to the target… [more](https://github.com/jonschlinkert/object.defaults)
+* [object.filter](https://github.com/jonschlinkert/object.filter): Create a new object filtered to have only properties for… [more](https://github.com/jonschlinkert/object.filter)
+* [object.omit](https://github.com/jonschlinkert/object.omit): Return a copy of an object without the given key,… [more](https://github.com/jonschlinkert/object.omit)
+* [object.pick](https://github.com/jonschlinkert/object.pick): Returns a filtered copy of an object with only the… [more](https://github.com/jonschlinkert/object.pick)
+* [object.reduce](https://github.com/jonschlinkert/object.reduce): Reduces an object to a value that is the accumulated… [more](https://github.com/jonschlinkert/object.reduce)
+* [right-align](https://github.com/jonschlinkert/right-align): Right-align the text in a string.
+* [word-wrap](https://github.com/jonschlinkert/word-wrap): Wrap words to a specified length.
 
 ## Author
 
 **Jon Schlinkert**
 
 + [github/jonschlinkert](https://github.com/jonschlinkert)
-+ [twitter/jonschlinkert](http://twitter.com/jonschlinkert) 
++ [twitter/jonschlinkert](http://twitter.com/jonschlinkert)
 
 ## License
-Copyright (c) 2014-2015 Jon Schlinkert  
-Released under the MIT license
 
-<!-- generated reference links -->
+Copyright (c) 2015 Jon Schlinkert
+Released under the MIT license.
+
+***
+
+_This file was generated by [verb-cli](https://github.com/assemble/verb-cli) on April 25, 2015._
+
+<!-- reflinks generated by verb-reflinks plugin -->
 
 [verb]: https://github.com/assemble/verb
+[template]: https://github.com/jonschlinkert/template
 [assemble]: http://assemble.io
-
-<!-- deps:mocha jshint-stylish -->
