@@ -64,8 +64,6 @@ exports.modularize = function modularize(options) {
   });
 };
 
-
-
 function namify(fp) {
   return '@name .'+ basename(fp);
 }
