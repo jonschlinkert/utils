@@ -5,5 +5,5 @@
 All utils from all categories are placed on the `_` object. 
 
 ```js
-{%= methods("index.js") %}
+{%= utils_methods("index.js") %}
 ```

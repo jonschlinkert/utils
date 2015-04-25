@@ -10,7 +10,7 @@ var jshint = require('gulp-jshint');
 var mocha = require('gulp-mocha');
 var verb = require('verb');
 
-verb.helper('methods', function (fp) {
+verb.helper('utils_methods', function (fp) {
   var obj = require(path.resolve(process.cwd(), fp));
   return util.inspect(obj, null, 10);
 });
@@ -21,6 +21,7 @@ verb.task('readme', function () {
 });
 
 verb.task('lint', function () {
+  /* deps: jshint-stylish */
   verb.src(['index.js', 'lib/**/*.js'])
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('jshint-stylish'));
