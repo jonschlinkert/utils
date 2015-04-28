@@ -8,10 +8,9 @@
 'use strict';
 
 require('should');
-var utils = require('..')._;
-var _ = require('lodash');
+var utils = require('../index').fs;
 
-describe('code', function() {
+describe('fs utils:', function() {
   var orig = process.cwd();
   before(function () {
     process.chdir(__dirname + '/fixtures');
@@ -22,11 +21,11 @@ describe('code', function() {
 
   describe('fs', function() {
     it('should return an empty string when the file does not exist.', function() {
-      utils.tryReaddir(".").should.containDeep(['README.md'])
+      utils.tryReaddir('.').should.containDeep(['README.md'])
     });
 
     it('should read a file and inject its content.', function() {
-      utils.tryRequire("a.js").should.have.property('aaa');
+      utils.tryRequire('a.js').should.have.property('aaa');
     });
   });
 });
