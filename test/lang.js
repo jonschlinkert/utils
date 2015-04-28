@@ -28,14 +28,6 @@ describe('lang utils:', function() {
     });
   });
 
-  describe('isArguments', function() {
-    it('should return true if the given value is an arguments object.', function() {
-      utils.isArguments(arguments).should.be.true;
-      utils.isArguments('123').should.be.false;
-      utils.isArguments([1, 2, 3]).should.be.false;
-    });
-  });
-
   describe('isEmpty', function() {
     it('should return true if the given value is empty.', function() {
       utils.isEmpty('').should.be.true;

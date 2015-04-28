@@ -9,6 +9,7 @@
 
 /* deps: mocha */
 require('should');
+var assert = require('assert');
 var utils = require('../index').array;
 
 var arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
@@ -100,23 +101,49 @@ describe('array utils:', function() {
 
   describe('flatten', function() {
     it('should recursively flatten an array or arrays.', function() {
-      utils.flatten(['a', ['b', ['c']], 'd', ['e']]).should.be.eql(['a', 'b', 'c', 'd', 'e']);
+      utils.flatten(['a', ['b', ['c']], 'd', ['e']]).should.eql(['a', 'b', 'c', 'd', 'e']);
+    });
+  });
+
+  describe('each', function () {
+    it('should return undefined when the first arg is null', function () {
+      assert(utils.each() === undefined);
+    });
+
+    it('should loop over each item in an array and call the given function on every element:', function () {
+      var res = [];
+      utils.each(['a', 'b', 'c'], function (ele) {
+        res.push(ele + ele);
+      });
+      res.should.eql(['aa', 'bb', 'cc']);
+    });
+
+    it('should "break" when `false` is returned:', function () {
+      var res = [];
+      utils.each(['a', 'b', 'c'], function (ele) {
+        if (ele === 'b') {
+          return false;
+        }
+        res.push(ele + ele);
+      });
+      res.should.eql(['aa']);
     });
   });
 
   describe('forEach', function() {
     it('should loop over each item in an array.', function() {
-      var array = ['a', 'b', 'c'];
-      var fixture = [];
-      utils.forEach(array, function (ele, i) {
-        fixture[i] = ele + ele;
+      var one = ['a', 'b', 'c'];
+      var two = [];
+
+      utils.forEach(['a', 'b', 'c'], function (ele, i) {
+        one[i] = i + ele;
       });
-      utils.forEach(array, function (ele, i) {
-        array[i] = i + ele;
+      utils.forEach(['a', 'b', 'c'], function (ele, i) {
+        two[i] = ele + ele;
       });
 
-      fixture.should.be.eql(['aa', 'bb', 'cc']);
-      array.should.be.eql(['0a', '1b', '2c']);
+      one.should.eql(['0a', '1b', '2c']);
+      two.should.eql(['aa', 'bb', 'cc']);
     });
   });
 
