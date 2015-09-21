@@ -1,10 +1,9 @@
 'use strict';
 
-var fs = require('fs');
 var path = require('path');
 var util = require('util');
-var gutil = require('gulp-util');
 var plugin = require('./support/plugins');
+var stylish = require('jshint-stylish');
 var istanbul = require('gulp-istanbul');
 var jshint = require('gulp-jshint');
 var mocha = require('gulp-mocha');
@@ -20,26 +19,27 @@ verb.task('readme', function () {
     .pipe(verb.dest('.'));
 });
 
-verb.task('lint', function () {
-  /* deps: jshint-stylish */
-  verb.src(['index.js', 'lib/**/*.js'])
-    .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter('jshint-stylish'));
+var lint = ['index.js', 'lib/**/*.js'];
+
+verb.task('coverage', function () {
+  return verb.src(lint)
+    .pipe(istanbul())
+    .pipe(istanbul.hookRequire());
 });
 
-verb.task('test', ['lint'], function (cb) {
-  verb.src(['index.js', 'lib/**/*.js'])
-    .pipe(istanbul({includeUntested: true}))
-    .pipe(istanbul.hookRequire())
-    .on('finish', function () {
-      verb.src(['test/*.js'])
-        .pipe(mocha())
-        .pipe(istanbul.writeReports({
-          reporters: [ 'text' ],
-          reportOpts: {dir: 'coverage', file: 'summary.txt'}
-        }))
-        .on('end', cb)
-    });
+verb.task('mocha', ['coverage'], function () {
+  return verb.src('test/*.js')
+    .pipe(mocha({reporter: 'spec'}))
+    .pipe(istanbul.writeReports({
+      reporters: [ 'text' ],
+      reportOpts: {dir: 'coverage', file: 'summary.txt'}
+    }))
+});
+
+verb.task('jshint', function () {
+  return verb.src(lint)
+    .pipe(jshint())
+    .pipe(jshint.reporter(stylish));
 });
 
 verb.task('names', function () {
@@ -54,4 +54,4 @@ verb.task('modularize', function () {
     .pipe(verb.dest('lib/temp'));
 });
 
-verb.task('default', ['test', 'readme']);
+verb.task('default', ['mocha', 'jshint', 'readme']);
