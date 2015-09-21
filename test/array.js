@@ -27,6 +27,13 @@ describe('array utils:', function() {
     });
   });
 
+  describe('indexOf', function() {
+    it('should return the index of an item', function() {
+      assert(utils.indexOf(['a', 'b'], 'b') === 1);
+      assert(utils.indexOf(['a', 'b', 'c'], 'c') === 2);
+    });
+  });
+
   describe('arrayify', function() {
     it('should coerce a value to an array.', function() {
       utils.isArray(utils.arrayify('foo')).should.be.true;
