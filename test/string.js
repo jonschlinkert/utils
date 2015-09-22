@@ -294,5 +294,8 @@ describe('string utils:', function() {
     it('should truncate a string to the specified `length` and add an ellipsis.', function() {
       utils.ellipsis('foo bar baz', 7).should.equal('foo bar…');
     });
+    it('should truncate a string, remove all HTML tags and add an ellipsis', function() {
+      utils.ellipsis('<span>foo bar baz</span>', 7).should.equal('foo bar…');
+    });
   });
 });
