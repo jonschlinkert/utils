@@ -7,7 +7,7 @@
 
 'use strict';
 
-/* deps: mocha */
+require('mocha');
 require('should');
 var assert = require('assert');
 var utils = require('../index').array;
