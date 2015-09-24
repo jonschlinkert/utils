@@ -1,7 +1,7 @@
 {
   "name": "utils",
   "description": "Fast, generic JavaScript/node.js utility functions.",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "homepage": "https://github.com/jonschlinkert/utils",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "jonschlinkert/utils",
@@ -50,6 +50,7 @@
   },
   "devDependencies": {
     "chalk": "^1.1.1",
+    "gulp": "^3.9.0",
     "gulp-istanbul": "^0.10.0",
     "gulp-jshint": "^1.11.2",
     "gulp-mocha": "^2.1.3",
