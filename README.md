@@ -946,7 +946,7 @@ snakecase("a-b-c d_e");
 //=> 'a_b_c_d_e'
 ```
 
-### [.truncate](lib/string/truncate.js#L21)
+### [.truncate](lib/string/truncate.js#L22)
 
 Truncate a string by removing all HTML tags and limiting the result to the specified `length`.
 
@@ -1055,7 +1055,7 @@ File                   |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Li
   reduce.js            |      100 |      100 |      100 |      100 |                |
   result.js            |       25 |        0 |        0 |       25 | 6,7,8,10,11,13 |
   some.js              |       30 |        0 |        0 |       30 |... 11,12,13,16 |
- utils/lib/string/     |    99.27 |    96.77 |       96 |    99.09 |                |
+ utils/lib/string/     |    99.28 |    96.77 |       96 |     99.1 |                |
   camelcase.js         |      100 |      100 |      100 |      100 |                |
   centerAlign.js       |      100 |      100 |      100 |      100 |                |
   chop.js              |      100 |      100 |      100 |      100 |                |
@@ -1078,7 +1078,7 @@ File                   |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Li
   truncate.js          |      100 |      100 |      100 |      100 |                |
   wordwrap.js          |      100 |      100 |      100 |      100 |                |
 -----------------------|----------|----------|----------|----------|----------------|
-All files              |     84.5 |    80.52 |    67.16 |    83.38 |                |
+All files              |    84.54 |    80.52 |    67.16 |    83.43 |                |
 -----------------------|----------|----------|----------|----------|----------------|
 ```
 
@@ -1139,9 +1139,34 @@ $ npm install -d && verb
 
 ## Related projects
 
-> This project depends on these great libraries:
+> This project depends on these great libraries. If you don't need a full utility belt for your project, any of these can be used by themselves:
 
-{%= related(Object.keys(dependencies)) %}
+* [any](https://www.npmjs.com/package/any): Returns `true` if a value exists in the given string, array or object. | [homepage](https://github.com/jonschlinkert/any)
+* [arr-diff](https://www.npmjs.com/package/arr-diff): Returns an array with only the unique values from the first array, by excluding all… [more](https://www.npmjs.com/package/arr-diff) | [homepage](https://github.com/jonschlinkert/arr-diff)
+* [arr-flatten](https://www.npmjs.com/package/arr-flatten): Recursively flatten an array or arrays. This is the fastest implementation of array flatten. | [homepage](https://github.com/jonschlinkert/arr-flatten)
+* [arr-map](https://www.npmjs.com/package/arr-map): Faster, node.js focused alternative to JavaScript's native array map. | [homepage](https://github.com/jonschlinkert/arr-map)
+* [arr-union](https://www.npmjs.com/package/arr-union): Combines a list of arrays, returning a single array with unique values, using strict equality… [more](https://www.npmjs.com/package/arr-union) | [homepage](https://github.com/jonschlinkert/arr-union)
+* [array-each](https://www.npmjs.com/package/array-each): Loop over each item in an array and call the given function on every element. | [homepage](https://github.com/jonschlinkert/array-each)
+* [array-slice](https://www.npmjs.com/package/array-slice): Array-slice method. Slices `array` from the `start` index up to, but not including, the `end`… [more](https://www.npmjs.com/package/array-slice) | [homepage](https://github.com/jonschlinkert/array-slice)
+* [array-unique](https://www.npmjs.com/package/array-unique): Return an array free of duplicate values. Fastest ES5 implementation. | [homepage](https://github.com/jonschlinkert/array-unique)
+* [center-align](https://www.npmjs.com/package/center-align): Center-align the text in a string. | [homepage](https://github.com/jonschlinkert/center-align)
+* [export-dirs](https://www.npmjs.com/package/export-dirs): Export directories and their files as node.js modules. | [homepage](https://github.com/jonschlinkert/export-dirs)
+* [export-files](https://www.npmjs.com/package/export-files): node.js utility for exporting a directory of files as modules. | [homepage](https://github.com/jonschlinkert/export-files)
+* [for-in](https://www.npmjs.com/package/for-in): Iterate over the own and inherited enumerable properties of an objecte, and return an object… [more](https://www.npmjs.com/package/for-in) | [homepage](https://github.com/jonschlinkert/for-in)
+* [for-own](https://www.npmjs.com/package/for-own): Iterate over the own enumerable properties of an object, and return an object with properties… [more](https://www.npmjs.com/package/for-own) | [homepage](https://github.com/jonschlinkert/for-own)
+* [has-values](https://www.npmjs.com/package/has-values): Returns true if any values exist, false if empty. Works for booleans, functions, numbers, strings,… [more](https://www.npmjs.com/package/has-values) | [homepage](https://github.com/jonschlinkert/has-values)
+* [is-number](https://www.npmjs.com/package/is-number): Returns true if the value is a number. comprehensive tests. | [homepage](https://github.com/jonschlinkert/is-number)
+* [is-plain-object](https://www.npmjs.com/package/is-plain-object): Returns true if an object was created by the `Object` constructor. | [homepage](https://github.com/jonschlinkert/is-plain-object)
+* [kind-of](https://www.npmjs.com/package/kind-of): Get the native type of a value. | [homepage](https://github.com/jonschlinkert/kind-of)
+* [make-iterator](https://www.npmjs.com/package/make-iterator): Convert an argument into a valid iterator. Based on the `.makeIterator()` implementation in mout https://github.com/mout/mout. | [homepage](https://github.com/jonschlinkert/make-iterator)
+* [object.defaults](https://www.npmjs.com/package/object.defaults): Like `extend` but only copies missing properties/values to the target object. | [homepage](https://github.com/jonschlinkert/object.defaults)
+* [object.filter](https://www.npmjs.com/package/object.filter): Create a new object filtered to have only properties for which the callback returns true. | [homepage](https://github.com/jonschlinkert/object.filter)
+* [object.omit](https://www.npmjs.com/package/object.omit): Return a copy of an object excluding the given key, or array of keys. Also… [more](https://www.npmjs.com/package/object.omit) | [homepage](https://github.com/jonschlinkert/object.omit)
+* [object.pick](https://www.npmjs.com/package/object.pick): Returns a filtered copy of an object with only the specified keys, like `pick` from… [more](https://www.npmjs.com/package/object.pick) | [homepage](https://github.com/jonschlinkert/object.pick)
+* [object.reduce](https://www.npmjs.com/package/object.reduce): Reduces an object to a value that is the accumulated result of running each property… [more](https://www.npmjs.com/package/object.reduce) | [homepage](https://github.com/jonschlinkert/object.reduce)
+* [right-align](https://www.npmjs.com/package/right-align): Right-align the text in a string. | [homepage](https://github.com/jonschlinkert/right-align)
+* [striptags](https://www.npmjs.com/package/striptags): PHP strip_tags in Node.js | [homepage](https://github.com/ericnorris/striptags)
+* [word-wrap](https://www.npmjs.com/package/word-wrap): Wrap words to a specified length. | [homepage](https://github.com/jonschlinkert/word-wrap)
 
 ## Author
 
@@ -1157,6 +1182,4 @@ Released under the MIT license.
 
 ***
 
-_This file was generated by [verb-cli](https://github.com/assemble/verb-cli) on September 20, 2015._
-
-<!-- deps:mocha jshint-stylish -->
+_This file was generated by [verb-cli](https://github.com/assemble/verb-cli) on September 23, 2015._
