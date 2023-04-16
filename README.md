@@ -293,6 +293,50 @@ map(['a', 'b', 'c'], function (ele, i) {
 //=> ['0a', '1b', '2c']
 ```
 
+### [.pmap](lib/array/pmap.js#L27)
+
+This will queue async/await operation on JavaScript's native array map to resolve after the queue is empty, instead of using Promise.all() that will run function on element in parallel and wait until all individually resolve
+
+**Params**
+
+* `array` **{Array}**
+* `fn` **{Promise<Function>}**
+* `returns` **{Promise<Array>}**
+
+**Example**
+
+```js
+async function fn (each) {
+  each + each
+}
+
+await ['a', 'b', 'c'].map(async function (each) {
+  return await fn(each)
+});
+//=> ['aa', 'bb', 'cc']
+
+await map(['a', 'b', 'c'], async function (each) {
+  return await fn(each)
+});
+//=> ['aa', 'bb', 'cc']
+
+map(['a', 'b', 'c'], function (each, i) {
+  return new Promise( function( resolve ){
+     resolve( i + each )
+  })
+})
+.then( console.log )
+//=> ['0a', '1b', '2c']
+
+['a', 'b', 'c'].map(function (each, i) {
+  return new Promise( function (resolve) {
+     resolve( i + each )
+  })
+})
+.then( console.log )
+//=> ['0a', '1b', '2c']
+```
+
 ### [.slice](lib/array/slice.js#L21)
 
 Alternative to JavaScript's native array-slice method. Slices `array` from the `start` index up to but not including the `end` index.
