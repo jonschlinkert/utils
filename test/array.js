@@ -195,6 +195,36 @@ describe('array utils:', function() {
     });
   });
 
+  describe('pmap', function() {
+    it('should return an empty array when undefined.', async function() {
+      await utils.map().should.eql([]);
+    });
+
+    it('should map the items in the array and return new values.', async function() {
+      async function fn( str ){
+        return str + str
+      }
+
+      const result = await utils.pmap(['a','b','c'], async function(str) {
+        return await fn( str )
+      })
+      
+      result.should.eql(['aa', 'bb', 'cc'])
+    });
+
+    it('should map the items in the array and return new values (Prototype).', async function() {
+      async function fn( str, i ){
+        return i + str
+      }
+
+      const result = await ['a','b','c'].pmap( async function(str, i) {
+        return await fn( str, i )
+      })
+      
+      result.should.eql(['0a', '1b', '2c'])
+    });
+  });
+
   describe('sort', function() {
     it('should throw on bad args.', function() {
       (function () {
